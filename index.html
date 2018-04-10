@@ -16,10 +16,8 @@
       background-color: #363636;
       color: #f5f5f5
     }
-    .footer a:focus,
-    .footer a:hover,
-    .footer a:active {
-      color: #f5f5f5
+    .footer.is-dark a:not(.button):not(.dropdown-item):not(.tag), .footer.is-dark strong {
+      color: inherit
     }
     svg:not(:root).svg-inline {
       overflow: visible
@@ -181,7 +179,7 @@
             </div>
 
             <div class="column is-6 content">
-              <p>Sitemap</p>
+              <p><strong>Sitemap</strong></p>
               <p><a href="https://fnalabs.com">Home</a></p>
               <p><a href="https://fnalabs.com/#about">About</a></p>
             </div>
