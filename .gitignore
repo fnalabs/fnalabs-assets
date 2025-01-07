@@ -1,0 +1,42 @@
+.swc
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+coverage.lcov
+
+# next.js
+/.next/
+/out/
+.env.local
+
+# production
+/build
+/public
+
+# misc
+.DS_Store
+.vscode
+
+# Dependency directories
+node_modules
+jspm_packages
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
