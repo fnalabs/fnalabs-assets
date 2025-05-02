@@ -6,23 +6,13 @@ import federationConfig from './federationConfig'
 
 const isDev = process.env.NODE_ENV === 'development'
 const defaultConfig = {
-  entry: {
-    main: join(__dirname, './src/index.tsx'),
-  },
-  resolve: {
-    extensions: ['...', '.ts', '.tsx', '.jsx'],
-  },
-  output: {
-    filename: '[name].js',
-    path: join(__dirname, './dist/components'),
-    publicPath: '/components/',
-  },
+  entry: { main: join(__dirname, './src/index.tsx') },
+  resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
+  // TODO: inject env variables here for dev and prod publicPath values
+  output: { path: join(__dirname, './dist/assets'), publicPath: 'http://localhost:2999/assets/' },
   module: {
     rules: [
-      {
-        test: /\.svg$/,
-        type: 'asset',
-      },
+      { test: /\.svg$/, type: 'asset' },
       {
         test: /\.(jsx?|tsx?)$/,
         exclude: /(node_modules|\.webpack)/,
@@ -33,21 +23,10 @@ const defaultConfig = {
               sourceMap: true,
               jsc: {
                 externalHelpers: true,
-                parser: {
-                  syntax: 'typescript',
-                  tsx: true,
-                },
-                transform: {
-                  react: {
-                    runtime: 'automatic',
-                    development: isDev,
-                    refresh: isDev,
-                  },
-                },
+                parser: { syntax: 'typescript', tsx: true },
+                transform: { react: { runtime: 'automatic', development: isDev, refresh: isDev } },
               },
-              env: {
-                targets: ['chrome >= 87', 'edge >= 88', 'firefox >= 78', 'safari >= 14'],
-              },
+              env: { targets: ['chrome >= 87', 'edge >= 88', 'firefox >= 78', 'safari >= 14'] },
             },
           },
         ],
@@ -60,7 +39,7 @@ const defaultConfig = {
       template: './index.html',
       filename: 'index.html',
       inject: true,
-      publicPath: '/components',
+      publicPath: '/assets',
     }),
     new ModuleFederationPlugin(federationConfig),
   ],
@@ -71,10 +50,8 @@ const config = () => {
     ? {
         ...defaultConfig,
         devServer: {
-          port: 3000,
-          static: {
-            directory: join(__dirname, './dist/components'),
-          },
+          port: 2999,
+          static: { directory: join(__dirname, './dist/assets') },
           liveReload: true,
           headers: {
             'Access-Control-Allow-Origin': '*',
@@ -88,6 +65,7 @@ const config = () => {
       }
     : {
         ...defaultConfig,
+        output: { ...defaultConfig.output, filename: '[name].[contenthash].js' },
         devtool: 'source-map',
         optimization: { minimize: true },
       }
