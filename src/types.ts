@@ -14,7 +14,18 @@ export type Breakpoint =
   | 'until-fullhd'
 export type BreakpointColumn = Extract<Breakpoint, 'mobile' | 'tablet' | 'desktop' | 'widescreen' | 'fullhd'>
 
-export type Color = 'light' | 'dark'
+export type Color =
+  | 'primary'
+  | 'link'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'black'
+  | 'light'
+  | 'dark'
+  | 'white'
+  | 'transparent'
 
 export type FractionSize =
   | 'one-fifth'
@@ -31,6 +42,7 @@ export type FractionSizes = `${FractionSize}-${BreakpointColumn}`
 export type GapSize = IntRange<0, 9>
 export type GapSizes = `${GapSize}-${BreakpointColumn}`
 export type GenericSize = 'small' | 'medium' | 'large' | 'fullheight'
+export type HeadingSize = IntRange<1, 7>
 export type MinimumSize = IntRange<0, 33>
 export type NumericSize = IntRange<1, 13>
 export type NumericSizes = `${NumericSize}-${BreakpointColumn}`
