@@ -9,9 +9,8 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
   addons: [
     '@storybook/addon-a11y',
-    '@storybook/addon-essentials',
     '@storybook/addon-links',
-    '@storybook/addon-interactions',
+    getAbsolutePath("@storybook/addon-docs")
   ],
   framework: {
     name: 'storybook-react-rsbuild',

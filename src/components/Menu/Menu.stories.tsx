@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { expect, within } from '@storybook/test'
+import type { Meta, StoryObj } from 'storybook-react-rsbuild'
+import { expect, within } from 'storybook/test'
 import { MemoryRouter } from 'react-router'
 
 import Menu from './Menu'
