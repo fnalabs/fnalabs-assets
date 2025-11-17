@@ -5,6 +5,7 @@ import type {
   NumericSize,
   NumericSizes,
   TextPosition,
+  TextPositions,
 } from '../../types'
 import React, { FC, ReactNode } from 'react'
 
@@ -12,13 +13,13 @@ export interface IColumn {
   children: ReactNode
   content?: boolean
   document?: boolean
-  fractionSize?: FractionSize | Array<FractionSize | FractionSizes>
-  fractionSizeOffset?: FractionSize | Array<FractionSize | FractionSizes>
+  fractionSize?: FractionSize | FractionSizes | Array<FractionSize | FractionSizes>
+  fractionSizeOffset?: FractionSize | FractionSizes | Array<FractionSize | FractionSizes>
   hiddenTouch?: boolean
-  numericSize?: NumericSize | Array<NumericSize | NumericSizes>
-  numericSizeOffset?: NumericSize | Array<NumericSize | NumericSizes>
+  numericSize?: NumericSize | NumericSizes | Array<NumericSize | NumericSizes>
+  numericSizeOffset?: NumericSize | NumericSizes | Array<NumericSize | NumericSizes>
   narrow?: boolean | BreakpointColumn[]
-  textPosition?: TextPosition
+  textPosition?: TextPosition | TextPositions | Array<TextPosition | TextPositions>
 }
 const Column: FC<IColumn> = ({
   children,
@@ -49,7 +50,11 @@ const Column: FC<IColumn> = ({
     : narrow
       ? ' is-narrow'
       : ''
-  const textPositionClass = textPosition ? ` has-text-${textPosition}` : ''
+  const textPositionClass = Array.isArray(textPosition)
+    ? textPosition.reduce((tpClassName, tPosition) => (tpClassName += ` has-text-${tPosition}`), '')
+    : textPosition
+      ? ` has-text-${textPosition}`
+      : ''
 
   // NOTE: prefer 12 column grid precision over fractions
   const sizeClass = Array.isArray(numericSize)

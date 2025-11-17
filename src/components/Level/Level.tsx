@@ -10,10 +10,11 @@ export interface ILevelGroup {
 }
 export interface ILevel {
   items: ILevelGroup | ILevelItem[]
+  mobile?: boolean
 }
 
 const renderItems = (items: ILevelItem[]) =>
-  items.map(item => <div className={`level-item${item.centered ? ' has-text-centered' : ''}`}>{item.content}</div>)
+  items.map((item, index) => <div key={`level-item-${index}`} className={`level-item${item.centered ? ' has-text-centered' : ''}`}>{item.content}</div>)
 
 const renderGroups = (groups: ILevelGroup) => (
   <>
@@ -22,7 +23,7 @@ const renderGroups = (groups: ILevelGroup) => (
   </>
 )
 
-const Level: FC<ILevel> = ({ items }) => (
-  <div className="level">{Array.isArray(items) ? renderItems(items) : renderGroups(items)}</div>
+const Level: FC<ILevel> = ({ items, mobile }) => (
+  <div className={`level${mobile ? ' is-mobile' : ''}`}>{Array.isArray(items) ? renderItems(items) : renderGroups(items)}</div>
 )
 export default Level

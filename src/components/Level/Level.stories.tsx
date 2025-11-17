@@ -4,7 +4,7 @@ import { expect, within } from 'storybook/test'
 import Level from './Level'
 
 const meta = {
-  title: 'Components/Level',
+  title: 'Bulma/Layout/Level',
   component: Level,
   tags: ['autodocs'],
 } satisfies Meta<typeof Level>

@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router'
 import Menu from './Menu'
 
 const meta = {
-  title: 'Components/Menu',
+  title: 'Bulma/Components/Menu',
   component: Menu,
   decorators: [
     Story => (

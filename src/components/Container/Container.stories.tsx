@@ -4,7 +4,7 @@ import { expect, within } from 'storybook/test'
 import Container from './Container'
 
 const meta = {
-  title: 'Components/Container',
+  title: 'Bulma/Layout/Container',
   component: Container,
   tags: ['autodocs'],
 } satisfies Meta<typeof Container>

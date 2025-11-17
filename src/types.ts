@@ -27,6 +27,9 @@ export type Color =
   | 'white'
   | 'transparent'
 
+export type FixedPosition = 'top' | 'bottom'
+
+export type ButtonStyle = 'outlined' | 'inverted' | 'loading' | 'static'
 export type FractionSize =
   | 'one-fifth'
   | 'one-quarter'
@@ -50,6 +53,7 @@ export type NumericSizes = `${NumericSize}-${BreakpointColumn}`
 export type CellPosition = 'col-start' | 'col-from-end' | 'col-span' | 'row-start' | 'row-from-end' | 'row-span'
 export type CellPositions = `${CellPosition}-${NumericSize}`
 export type TextPosition = 'left' | 'right' | 'centered' | 'justified'
+export type TextPositions = `${TextPosition}-${Breakpoint}`
 
 export interface ILink {
   label: string

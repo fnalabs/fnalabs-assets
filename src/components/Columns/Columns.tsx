@@ -12,6 +12,8 @@ export interface IColumns {
   gapSize?: GapSize | Array<GapSize | GapSizes>
   /** Optional setting to remove Column gaps. */
   gapless?: boolean
+  /** Optional setting to enable mobile stacking. */
+  mobile?: boolean
   /** Optional setting to enable Multiline Column content. */
   multiline?: boolean
   /** Optional setting to enable vertical alignment of Columns. */
@@ -21,7 +23,7 @@ export interface IColumns {
  * To promote fully
  * <strong>NOTE:</strong> Columns should only contain Column children!
  */
-const Columns: FC<IColumns> = ({ children, breakpoint, centered, gapSize, gapless, multiline, vcentered }) => {
+const Columns: FC<IColumns> = ({ children, breakpoint, centered, gapSize, gapless, mobile, multiline, vcentered }) => {
   const breakpointClass = breakpoint ? ` is-${breakpoint}` : ''
   const centeredClass = centered ? ' is-centered' : ''
   const gapSizeClass = Array.isArray(gapSize)
@@ -30,12 +32,13 @@ const Columns: FC<IColumns> = ({ children, breakpoint, centered, gapSize, gaples
       ? ` is-${gapSize}`
       : ''
   const gaplessClass = gapless ? ' is-gapless' : ''
+  const mobileClass = mobile ? ' is-mobile' : ''
   const multilineClass = multiline ? ' is-multiline' : ''
   const vcenteredClass = vcentered ? ' is-vcentered' : ''
 
   return (
     <div
-      className={`columns${gapSizeClass}${gaplessClass}${multilineClass}${breakpointClass}${centeredClass}${vcenteredClass}`}
+      className={`columns${gapSizeClass}${gaplessClass}${mobileClass}${multilineClass}${breakpointClass}${centeredClass}${vcenteredClass}`}
     >
       {children}
     </div>

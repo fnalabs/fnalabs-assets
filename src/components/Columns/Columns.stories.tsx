@@ -6,7 +6,7 @@ import Column from './Column'
 import Box from '../Box/Box'
 
 const meta = {
-  title: 'Components/Columns',
+  title: 'Bulma/Columns',
   component: Columns,
   tags: ['autodocs'],
 } satisfies Meta<typeof Columns>

@@ -6,7 +6,7 @@ import Cell from './Cell'
 import Box from '../Box/Box'
 
 const meta = {
-  title: 'Components/Grids',
+  title: 'Bulma/Grid',
   component: Grid,
   tags: ['autodocs'],
 } satisfies Meta<typeof Grid>

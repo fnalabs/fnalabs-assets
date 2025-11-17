@@ -20,8 +20,8 @@ const Media: FC<IMedia> = ({ imgAlt, imgSrc, subtitle, title }) => {
       </figure>
       <div className="media-content">
         <div className="content">
-          <h2 className="title is-4">{title}</h2>
-          <h3 className="subtitle is-6">{subtitle}</h3>
+          <h3 className="title is-4">{title}</h3>
+          <h4 className="subtitle is-6">{subtitle}</h4>
         </div>
       </div>
     </article>

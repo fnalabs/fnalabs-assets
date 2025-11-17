@@ -4,7 +4,7 @@ import { expect, within } from 'storybook/test'
 import Section from './Section'
 
 const meta = {
-  title: 'Components/Section',
+  title: 'Bulma/Layout/Section',
   component: Section,
   tags: ['autodocs'],
 } satisfies Meta<typeof Section>
