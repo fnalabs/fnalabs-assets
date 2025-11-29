@@ -1,14 +1,18 @@
 import type { ButtonStyle, Color, FixedPosition, ILink } from '../../types'
 import React, { FC, useState } from 'react'
 import { Link, NavLink } from 'react-router'
-import { FnALabsInverted } from '../Icon'
+import * as Icons from '../Icon'
 
 export interface INavLink extends ILink {
-  children?: INavLink[]
+  list?: INavLink[]
   button?: boolean
   color?: Color
   divider?: boolean
   style?: ButtonStyle
+}
+
+export interface IBrandLink extends ILink {
+  brandIcon: keyof typeof Icons
 }
 
 export const renderLink = (link: INavLink) => {
@@ -30,7 +34,7 @@ export const renderLink = (link: INavLink) => {
   )
 }
 export const mapLinks = (link: INavLink) => {
-  if (link.children?.length) {
+  if (link.list?.length) {
     return (
       <div key={link.label} className="navbar-item has-dropdown is-hoverable">
         <NavLink key={link.label} to={link.href} className={({ isActive, isPending }) =>
@@ -38,7 +42,7 @@ export const mapLinks = (link: INavLink) => {
           }
         >{link.label}</NavLink>
         <div className="navbar-dropdown is-boxed">
-          {link.children.map(mapLinks)}
+          {link.list.map(mapLinks)}
         </div>
       </div>
     )
@@ -55,7 +59,7 @@ export const mapLinks = (link: INavLink) => {
 }
 
 export interface INavbar {
-  brandLink?: ILink
+  brandLink?: IBrandLink
   startLinks?: INavLink[]
   endLinks?: INavLink[]
   color?: Color
@@ -63,7 +67,7 @@ export interface INavbar {
   spaced?: boolean
   shaded?: boolean
 }
-const Navbar: FC<INavbar> = ({ startLinks, endLinks, color, fixed, spaced, shaded }) => {
+const Navbar: FC<INavbar> = ({ brandLink, startLinks, endLinks, color, fixed, spaced, shaded }) => {
   const [closed, setClosed] = useState(true)
 
   const colorClass = color ? ` is-${color}` : ''
@@ -71,14 +75,27 @@ const Navbar: FC<INavbar> = ({ startLinks, endLinks, color, fixed, spaced, shade
   const spacedClass = spaced ? ' is-spaced' : ''
   const shadedClass = shaded ? ' has-shadow' : ''
 
+  const BrandIcon = brandLink ? Icons[brandLink.brandIcon] : Icons.Box
+
   return (
     <nav className={`navbar${colorClass}${fixedClass}${spacedClass}${shadedClass}`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link to='/' className="navbar-item">
           <span className="icon is-large">
-            <FnALabsInverted />
+            <Icons.FnALabsInverted />
           </span>
         </Link>
+
+        {brandLink && (
+          <>
+            <span className='is-size-2'>|</span>
+            <Link to={brandLink.href} className="navbar-item">
+              <span className="icon is-large">
+                <BrandIcon />
+              </span>
+            </Link>
+          </>
+        )}
 
         <a role="button" className={`navbar-burger${closed ? '' : ' is-active'}`} aria-label="menu" aria-expanded="false" data-target="navbar" onClick={() => setClosed(!closed)}>
           <span aria-hidden="true" />

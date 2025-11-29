@@ -3,11 +3,13 @@ import { Outlet } from 'react-router'
 import Navbar, { INavbar } from '../../components/Navbar/Navbar'
 
 export interface IAppLayout extends INavbar {}
-const AppLayout: FC<IAppLayout> = ({ startLinks, endLinks, color, fixed, spaced, shaded }) => {
+const AppLayout: FC<IAppLayout> = (props) => {
   return (
     <>
-      <Navbar startLinks={startLinks} endLinks={endLinks} color={color} fixed={fixed} spaced={spaced} shaded={shaded} />
-      <Outlet />
+      <Navbar {...props} />
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }

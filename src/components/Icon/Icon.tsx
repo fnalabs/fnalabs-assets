@@ -1,5 +1,5 @@
 import type { GenericSize } from '../../types'
-import React, { FC } from 'react'
+import React, { type FC, type ReactNode } from 'react'
 
 const faSizes = {
   small: 'sm',
@@ -8,14 +8,17 @@ const faSizes = {
 }
 
 export interface IIcon {
-  name: string
-  style: string
-  size?: Exclude<GenericSize, 'fullheight'>
-  children?: string
+  name?: string
+  style?: string
+  size?: Exclude<GenericSize, 'normal' | 'fullheight'>
+  children?: ReactNode | string
+  wrapper?: boolean
 }
-const Icon: FC<IIcon> = ({ name, style, size, children }) => {
+const Icon: FC<IIcon> = ({ name, style, size, children, wrapper }) => {
   const sizeClass = size ? ` is-${size}` : ''
   const faSizeClass = size ? ` fa-${faSizes[size]}` : ''
+
+  if (wrapper) return (<span className={`icon${sizeClass}`}>{children}</span>)
 
   return children
     ? (

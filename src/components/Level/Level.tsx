@@ -11,6 +11,7 @@ export interface ILevelGroup {
 export interface ILevel {
   items: ILevelGroup | ILevelItem[]
   mobile?: boolean
+  nav?: boolean
 }
 
 const renderItems = (items: ILevelItem[]) =>
@@ -23,7 +24,13 @@ const renderGroups = (groups: ILevelGroup) => (
   </>
 )
 
-const Level: FC<ILevel> = ({ items, mobile }) => (
-  <div className={`level${mobile ? ' is-mobile' : ''}`}>{Array.isArray(items) ? renderItems(items) : renderGroups(items)}</div>
-)
+const Level: FC<ILevel> = ({ items, mobile, nav }) => {
+  return nav
+    ? (
+      <nav className={`level${mobile ? ' is-mobile' : ''}`}>{Array.isArray(items) ? renderItems(items) : renderGroups(items)}</nav>
+    )
+    : (
+      <div className={`level${mobile ? ' is-mobile' : ''}`}>{Array.isArray(items) ? renderItems(items) : renderGroups(items)}</div>
+    )
+}
 export default Level

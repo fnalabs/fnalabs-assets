@@ -6,7 +6,7 @@ export interface IMenuLink extends ILink {
   list?: IMenuLink[]
 }
 export interface IMenuList {
-  label: string
+  label?: string
   list: IMenuLink[]
 }
 export interface IMenu {
@@ -15,10 +15,10 @@ export interface IMenu {
 }
 
 const Menu: FC<IMenu> = ({ list }) => (
-  <nav className="menu">
+  <nav className="menu mb-6">
     {list.map(val => (
       <>
-        <p className="menu-label">{val.label}</p>
+        {val.label && <p className="menu-label">{val.label}</p>}
         <ul className="menu-list">
           {val.list.map(link => {
             if (link.list) {

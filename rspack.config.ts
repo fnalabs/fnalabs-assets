@@ -9,7 +9,11 @@ const defaultConfig = {
   entry: { main: join(__dirname, './src/index.tsx') },
   resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
   // TODO: inject env variables here for dev and prod publicPath values
-  output: { path: join(__dirname, './dist/assets'), publicPath: 'http://localhost:2999/assets/' },
+  output: {
+    name: '[name].[contenthash].js',
+    path: join(__dirname, './dist/assets'),
+    publicPath: 'http://localhost:2999/assets/'
+  },
   module: {
     rules: [
       { test: /\.svg$/, type: 'asset' },

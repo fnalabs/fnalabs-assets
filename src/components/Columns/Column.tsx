@@ -10,9 +10,8 @@ import type {
 import React, { FC, ReactNode } from 'react'
 
 export interface IColumn {
-  children: ReactNode
+  children?: ReactNode
   content?: boolean
-  document?: boolean
   fractionSize?: FractionSize | FractionSizes | Array<FractionSize | FractionSizes>
   fractionSizeOffset?: FractionSize | FractionSizes | Array<FractionSize | FractionSizes>
   hiddenTouch?: boolean
@@ -24,7 +23,6 @@ export interface IColumn {
 const Column: FC<IColumn> = ({
   children,
   content,
-  document,
   fractionSize,
   fractionSizeOffset,
   hiddenTouch,
@@ -36,12 +34,6 @@ const Column: FC<IColumn> = ({
   if ((fractionSize && numericSizeOffset) || (fractionSizeOffset && numericSize))
     throw new TypeError('Column Sizes and Offsets units of measure must match (either fractions or numeric)')
 
-  if (document)
-    return (
-      <section className="column content" role="document">
-        {children}
-      </section>
-    )
   if (hiddenTouch) return <header className="column is-narrow is-hidden-touch">{children}</header>
 
   const contentClass = content ? ' content' : ''
