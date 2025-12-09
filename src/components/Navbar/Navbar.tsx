@@ -1,6 +1,8 @@
 import type { ButtonStyle, Color, FixedPosition, ILink } from '../../types'
 import React, { FC, useState } from 'react'
 import { Link, NavLink } from 'react-router'
+import Container from '../Container/Container'
+import Icon from '../Icon/Icon'
 import * as Icons from '../Icon'
 
 export interface INavLink extends ILink {
@@ -8,6 +10,8 @@ export interface INavLink extends ILink {
   button?: boolean
   color?: Color
   divider?: boolean
+  beforeIcon?: string
+  afterIcon?: string
   style?: ButtonStyle
 }
 
@@ -22,10 +26,13 @@ export const renderLink = (link: INavLink) => {
 
     return (
       <Link className={`button${colorClass}${styleClass}`} to={link.href} key={link.label}>
-        {link.label}
+        {link.beforeIcon && <Icon style='solid' name={link.beforeIcon} size='small' />}
+        <span>{link.label}</span>
+        {link.afterIcon && <Icon style='solid' name={link.afterIcon} size='small' />}
       </Link>
     )
   }
+
   return (
     <NavLink key={link.label} to={link.href} className={({ isActive, isPending }) =>
         isPending ? "navbar-item is-selected" : isActive ? "navbar-item is-active" : "navbar-item"
@@ -34,32 +41,35 @@ export const renderLink = (link: INavLink) => {
   )
 }
 export const mapLinks = (link: INavLink) => {
-  if (link.list?.length) {
-    return (
-      <div key={link.label} className="navbar-item has-dropdown is-hoverable">
-        <NavLink key={link.label} to={link.href} className={({ isActive, isPending }) =>
-            isPending ? "navbar-link is-selected" : isActive ? "navbar-link is-active" : "navbar-link"
-          }
-        >{link.label}</NavLink>
-        <div className="navbar-dropdown is-boxed">
-          {link.list.map(mapLinks)}
+  switch (true) {
+    case !!link.list:
+      return (
+        <div key={link.label} className="navbar-item has-dropdown is-hoverable">
+          <NavLink key={link.label} to={link.href} className={({ isActive, isPending }) =>
+              isPending ? "navbar-link is-selected" : isActive ? "navbar-link is-active" : "navbar-link"
+        }
+          >{link.label}</NavLink>
+          <div className="navbar-dropdown is-boxed">
+            {link.list.map(mapLinks)}
+          </div>
         </div>
-      </div>
-    )
-  } else if (link.divider) {
-    return (
-      <>
-        {renderLink(link)}
-        <hr key={`${link.label}-divider`} className="navbar-divider" />
-      </>
-    )
-  } else {
-    return renderLink(link)
+      )
+      case link.divider:
+        return (
+          <>
+          {renderLink(link)}
+          <hr key={`${link.label}-divider`} className="navbar-divider" />
+        </>
+      )
+    case link.button:
+      return <div className="buttons">{renderLink(link)}</div>
+    default:
+      return renderLink(link)
   }
 }
 
 export interface INavbar {
-  brandLink?: IBrandLink
+  brandLink: IBrandLink[]
   startLinks?: INavLink[]
   endLinks?: INavLink[]
   color?: Color
@@ -75,53 +85,48 @@ const Navbar: FC<INavbar> = ({ brandLink, startLinks, endLinks, color, fixed, sp
   const spacedClass = spaced ? ' is-spaced' : ''
   const shadedClass = shaded ? ' has-shadow' : ''
 
-  const BrandIcon = brandLink ? Icons[brandLink.brandIcon] : Icons.Box
+  const BrandIcon = Icons[brandLink[0].brandIcon]
+  const SubBrandIcon = brandLink[1] ? Icons[brandLink[1].brandIcon] : () => null
 
   return (
     <nav className={`navbar${colorClass}${fixedClass}${spacedClass}${shadedClass}`} role="navigation" aria-label="main navigation">
-      <div className="navbar-brand">
-        <Link to='/' className="navbar-item">
-          <span className="icon is-large">
-            <Icons.FnALabsInverted />
-          </span>
-        </Link>
+      <Container>
+        <div className="navbar-brand">
+          <Link to={brandLink[0].href} className="navbar-item">
+            <span className="icon is-large">
+              <BrandIcon />
+            </span>
+          </Link>
 
-        {brandLink && (
-          <>
-            <span className='is-size-2'>|</span>
-            <Link to={brandLink.href} className="navbar-item">
-              <span className="icon is-large">
-                <BrandIcon />
-              </span>
-            </Link>
-          </>
-        )}
+          {brandLink[1] && (
+            <>
+              <span className='is-size-2'>|</span>
+              <Link to={brandLink[1].href} className="navbar-item">
+                <span className="icon is-large">
+                  <SubBrandIcon />
+                </span>
+              </Link>
+            </>
+          )}
 
-        <a role="button" className={`navbar-burger${closed ? '' : ' is-active'}`} aria-label="menu" aria-expanded="false" data-target="navbar" onClick={() => setClosed(!closed)}>
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </a>
-      </div>
-
-      <div id="navbar" className={`navbar-menu${closed ? '' : ' is-active'}`}>
-        <div className="navbar-start">
-          {startLinks?.map(mapLinks)}
+          <a role="button" className={`navbar-burger has-text-inherit${closed ? '' : ' is-active'}`} aria-label="menu" aria-expanded="false" data-target="navbar" onClick={() => setClosed(!closed)}>
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </a>
         </div>
 
-        <div className="navbar-end">
-          {endLinks?.length && !endLinks[0]?.button
-            ? endLinks?.map(mapLinks)
-            : (
-              <div className="navbar-item">
-                <div className="buttons">
-                  {endLinks?.map(mapLinks)}
-                </div>
-              </div>
-            )}
+        <div id="navbar" className={`navbar-menu${closed ? '' : ' is-active'}`}>
+          <div className="navbar-start">
+            {startLinks?.map(mapLinks)}
+          </div>
+
+          <div className="navbar-end">
+            {endLinks?.map(mapLinks)}
+          </div>
         </div>
-      </div>
+      </Container>
     </nav>
   )
 }

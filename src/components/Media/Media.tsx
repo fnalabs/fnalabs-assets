@@ -1,28 +1,24 @@
-import React, { FC } from 'react'
+import React, { type FC, type ReactNode } from 'react'
+import Icon from '../Icon/Icon'
 
 export interface IMedia {
+  /** Content for the main Media experience. */
+  children: ReactNode
   /** Image alt text for accessibility support. */
-  imgAlt: string
-  /** Image source URL for rendering the Media image. */
-  imgSrc: string
-  /** Subtitle text for the Media experience. */
-  subtitle: string
-  /** Title text for the Media experience. */
-  title: string
+  imgAlt?: string
+  /** Optional Image source URL for rendering the Media image. */
+  imgSrc?: string
 }
-const Media: FC<IMedia> = ({ imgAlt, imgSrc, subtitle, title }) => {
+const Media: FC<IMedia> = ({ children, imgAlt, imgSrc }) => {
   return (
     <article className="media">
       <figure className="media-left">
-        <p className="image is-48x48">
-          <img src={imgSrc} alt={imgAlt} />
-        </p>
+        {imgSrc
+          ? <p className="image is-48x48"><img src={imgSrc} alt={imgAlt} /></p>
+          : <Icon size='large' style='solid' name='user' />}
       </figure>
       <div className="media-content">
-        <div className="content">
-          <h3 className="title is-4">{title}</h3>
-          <h4 className="subtitle is-6">{subtitle}</h4>
-        </div>
+        {children}
       </div>
     </article>
   )

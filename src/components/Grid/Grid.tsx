@@ -1,4 +1,4 @@
-import type { GapSize, MinimumSize, NumericSize, NumericSizes } from '../../types'
+import type { GapSize, MinimumSize, NumericSize, GridNumericSizes } from '../../types'
 import React, { FC, ReactNode } from 'react'
 
 export interface IGrid {
@@ -7,7 +7,7 @@ export interface IGrid {
   /** Optional grid modifier for minimum column width. */
   minimumSize?: MinimumSize
   /** Optional number of columns to set for the grid */
-  columnCount?: NumericSize | NumericSizes[]
+  columnCount?: NumericSize | GridNumericSizes[]
   /** Optional grid modifier for column gap size. */
   colGapSize?: GapSize
   /** Optional grid modifier for row gap size. */
@@ -25,7 +25,7 @@ const Grid: FC<IGrid> = ({ children, minimumSize, columnCount, colGapSize, rowGa
   const columnCountClass = Array.isArray(columnCount)
     ? columnCount.reduce((className, count) => (className += ` has-${count}`), '')
     : columnCount
-      ? ` has-${columnCount}-cols`
+      ? ` has-${columnCount}`
       : ''
   const minimumSizeClass = minimumSize ? ` is-col-min-${minimumSize}` : ''
   const colGapSizeClass = colGapSize ? ` is-column-gap-${colGapSize}` : ''

@@ -4,16 +4,12 @@ export default {
   name: pkg.name,
   manifest: true,
   exposes: {
-    // Icons
-    './icons/Efficiency': './src/components/Icon/Efficiency',
-    './icons/Female': './src/components/Icon/Female',
-    './icons/Flexibility': './src/components/Icon/Flexibility',
-    './icons/HiveIO': './src/components/Icon/HiveIO',
-    './icons/Male': './src/components/Icon/Male',
-    './icons/Privacy': './src/components/Icon/Privacy',
-    './icons/Quality': './src/components/Icon/Quality',
-    './icons/Succinctness': './src/components/Icon/Succinctness',
-    './icons/Support': './src/components/Icon/Support',
+    // Brand Icons
+    './brands/FnALabs': './src/components/Icon/FnALabs',
+    './brands/FnALabsInverted': './src/components/Icon/FnALabsInverted',
+    './brands/HiveIO': './src/components/Icon/HiveIO',
+    './brands/ModuleFederation': './src/components/Icon/ModuleFederation',
+    './brands/OpenTelemetry': './src/components/Icon/OpenTelemetry',
 
     // Bulma Components
     './Block': './src/components/Block/Block',

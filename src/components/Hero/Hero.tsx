@@ -27,7 +27,7 @@ const Hero: FC<IHero> = ({ children, bold, centered, className, color, footer, s
   return (
     <section className={`hero${boldClass}${colorClass}${sizeClass}${customClasses}`}>
       <div className={`hero-body${centeredClass}`}>{children}</div>
-      {!!footer && <div className={`hero-foot${centeredClass}`}>{footer}</div>}
+      {footer && <div className={`hero-foot${centeredClass}`}>{footer}</div>}
     </section>
   )
 }

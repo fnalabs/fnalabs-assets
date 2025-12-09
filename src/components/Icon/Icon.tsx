@@ -31,7 +31,7 @@ const Icon: FC<IIcon> = ({ name, style, size, children, wrapper }) => {
   )
     : (
     <span className={`icon${sizeClass}`}>
-        <i className={`fa-${style} fa-${name}${faSizeClass}`} />
+      <i className={`fa-${style} fa-${name}${faSizeClass}`} />
     </span>
   )
 }

@@ -7,16 +7,16 @@ export interface IImage {
   fixedSize?: FixedSize
   ratioSize?: RatioSize
   centered?: boolean
-  rounded?: boolean
+  hcentered?: boolean
 }
-const Image: FC<IImage> = ({ children, fixedSize, ratioSize, centered, rounded }) => {
+const Image: FC<IImage> = ({ children, fixedSize, ratioSize, centered, hcentered }) => {
   const fixedSizeClass = fixedSize ? ` is-${fixedSize}` : ''
   const ratioSizeClass = ratioSize ? ` is-${ratioSize}` : ''
   const centeredClass = centered ? ' mx-auto' : ''
-  const roundedClass = rounded ? ' is-rounded' : ''
+  const hcenteredClass = hcentered ? ' is-flex is-align-items-end' : ''
 
   return (
-    <figure className={`image${fixedSizeClass}${ratioSizeClass}${centeredClass}${roundedClass}`}>
+    <figure className={`image${fixedSizeClass}${ratioSizeClass}${centeredClass}${hcenteredClass}`}>
       {children}
     </figure>
   )

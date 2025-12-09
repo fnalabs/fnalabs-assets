@@ -2,7 +2,6 @@
   "name": "fnalabs_assets",
   "version": "0.0.0",
   "description": "FnA Labs logos and trademark [info](https://fnalabs.github.io/fnalabs-assets/).",
-  "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production rspack build",
     "build:storybook": "storybook build",

@@ -1,24 +1,19 @@
 import type { ILink } from '../../types'
 import React, { FC } from 'react'
-import { Outlet, ScrollRestoration } from 'react-router'
+import { Link, Outlet, ScrollRestoration } from 'react-router'
 
-import { Link } from 'react-router'
-
-import Cell from '../../components/Grid/Cell'
 import Container from '../../components/Container/Container'
 import Columns from '../../components/Columns/Columns'
 import Column from '../../components/Columns/Column'
 import Footer from '../../components/Footer/Footer'
-import Grid from '../../components/Grid/Grid'
-import Icon from '../../components/Icon/Icon'
-import { FnALabsInverted } from '../../components/Icon'
-import Level from '../../components/Level/Level'
 
-export interface IGlobalLayout {
+import SocialBrand, { type ISocialBrand } from '../SocialBrand/SocialBrand'
+
+export interface IGlobalLayout extends ISocialBrand {
   pageLinks: ILink[]
   policyLinks: ILink[]
 }
-const GlobalLayout: FC<IGlobalLayout> = ({ pageLinks, policyLinks }) => {
+const GlobalLayout: FC<IGlobalLayout> = ({ pageLinks, policyLinks, brandIcon, brandSlogan, socialLinks }) => {
   return (
     <>
       <div className='section is-fullheight p-0'>
@@ -29,11 +24,11 @@ const GlobalLayout: FC<IGlobalLayout> = ({ pageLinks, policyLinks }) => {
           <Columns>
             <Column narrow textPosition='centered-touch'>
               <p>Copyright &copy; FnA Labs</p>
-              <p className='is-size-7'>Icons from <a href='https://fontawesome.com/' target='_blank' rel='noopener noreferrer' className='has-text-inherit'>Font Awesome</a> (<a href='https://fontawesome.com/license' target='_blank' rel='noopener noreferrer' className='has-text-inherit'>License</a>)</p>
+              <p className='is-size-7'>Icons from <Link to='https://fontawesome.com/' target='_blank' rel='noopener noreferrer' className='has-text-inherit'>Font Awesome</Link> (<Link to='https://fontawesome.com/license/free' target='_blank' rel='noopener noreferrer' className='has-text-inherit'>License</Link>)</p>
               <p>
-                <a href='https://bulma.io' target='_blank' rel='noopener noreferrer'>
+                <Link to='https://bulma.io' target='_blank' rel='noopener noreferrer'>
                   <img src='https://bulma.io/assets/images/made-with-bulma--dark.png' alt='Made with Bulma' width='128' height='24'/>
-                </a>
+                </Link>
               </p>
             </Column>
 
@@ -58,16 +53,7 @@ const GlobalLayout: FC<IGlobalLayout> = ({ pageLinks, policyLinks }) => {
             </Column>
 
             <Column narrow textPosition='centered'>
-              <Level mobile items={[
-                { content: (<a className='has-text-inherit'><Icon style='brands' name='github' size='large' /></a>) },
-                { content: (<a className='has-text-inherit'><Icon style='brands' name='npm' size='large' /></a>) },
-                { content: (<a className='has-text-inherit'><Icon style='regular' name='envelope' size='large' /></a>) },
-              ]} />
-
-              <Grid>
-                <Cell><FnALabsInverted /></Cell>
-                <Cell><p>Fn Awesome!</p></Cell>
-              </Grid>
+              <SocialBrand brandIcon={brandIcon} brandSlogan={brandSlogan} socialLinks={socialLinks} />
             </Column>
           </Columns>
         </Container>

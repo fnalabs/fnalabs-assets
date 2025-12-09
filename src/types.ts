@@ -32,7 +32,7 @@ export type Color =
 
 export type FixedPosition = 'top' | 'bottom'
 
-export type ButtonStyle = 'outlined' | 'inverted' | 'loading' | 'static'
+export type ButtonStyle = 'outlined' | 'inverted' | 'rounded' | 'loading' | 'static'
 export type FixedSize =
   | '16x16'
   | '24x24'
@@ -60,6 +60,7 @@ export type HeadingSize = IntRange<1, 7>
 export type MinimumSize = IntRange<0, 33>
 export type NumericSize = IntRange<1, 13>
 export type NumericSizes = `${NumericSize}-${BreakpointColumn}`
+export type GridNumericSizes = `${NumericSize}-cols-${BreakpointColumn}`
 export type RatioSize =
   | 'squared'
   | '1by1'
