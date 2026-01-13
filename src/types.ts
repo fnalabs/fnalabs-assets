@@ -29,10 +29,13 @@ export type Color =
   | 'dark'
   | 'white'
   | 'transparent'
+  | 'text'
+  | 'ghost'
 
 export type FixedPosition = 'top' | 'bottom'
 
 export type ButtonStyle = 'outlined' | 'inverted' | 'rounded' | 'loading' | 'static'
+export type ButtonType = 'submit' | 'reset' | 'button'
 export type FixedSize =
   | '16x16'
   | '24x24'
@@ -87,4 +90,5 @@ export type TextPositions = `${TextPosition}-${Breakpoint}`
 export interface ILink {
   label: string
   href: string
+  external?: boolean
 }

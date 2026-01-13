@@ -11,7 +11,7 @@ export interface IHero {
   /** Optional custom CSS class name(s) to add to the Hero. */
   className?: string
   /** Optional color setting for the Hero. */
-  color?: Color
+  color?: Exclude<Color, 'text' | 'ghost'>
   /** Optional footer content for the Hero. */
   footer?: ReactNode
   /** Optional size setting for the Hero. */

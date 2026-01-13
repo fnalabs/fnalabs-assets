@@ -1,8 +1,8 @@
 import type { ButtonStyle, Color, FixedPosition, ILink } from '../../types'
 import React, { FC, useState } from 'react'
 import { Link, NavLink } from 'react-router'
+import Button from '../Button/Button'
 import Container from '../Container/Container'
-import Icon from '../Icon/Icon'
 import * as Icons from '../Icon'
 
 export interface INavLink extends ILink {
@@ -21,16 +21,7 @@ export interface IBrandLink extends ILink {
 
 export const renderLink = (link: INavLink) => {
   if (link.button) {
-    const colorClass = link.color ? ` is-${link.color}` : ''
-    const styleClass = link.style ? ` is-${link.style}` : ''
-
-    return (
-      <Link className={`button${colorClass}${styleClass}`} to={link.href} key={link.label}>
-        {link.beforeIcon && <Icon style='solid' name={link.beforeIcon} size='small' />}
-        <span>{link.label}</span>
-        {link.afterIcon && <Icon style='solid' name={link.afterIcon} size='small' />}
-      </Link>
-    )
+    return <Button href={link.href} color={link.color} style={link.style} beforeIcon={link.beforeIcon} afterIcon={link.afterIcon}>{link.label}</Button>
   }
 
   return (
@@ -47,8 +38,7 @@ export const mapLinks = (link: INavLink) => {
         <div key={link.label} className="navbar-item has-dropdown is-hoverable">
           <NavLink key={link.label} to={link.href} className={({ isActive, isPending }) =>
               isPending ? "navbar-link is-selected" : isActive ? "navbar-link is-active" : "navbar-link"
-        }
-          >{link.label}</NavLink>
+          }>{link.label}</NavLink>
           <div className="navbar-dropdown is-boxed">
             {link.list.map(mapLinks)}
           </div>
@@ -72,7 +62,7 @@ export interface INavbar {
   brandLink: IBrandLink[]
   startLinks?: INavLink[]
   endLinks?: INavLink[]
-  color?: Color
+  color?: Exclude<Color, 'text' | 'ghost'>
   fixed?: FixedPosition
   spaced?: boolean
   shaded?: boolean

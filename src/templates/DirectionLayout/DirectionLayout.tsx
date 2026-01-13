@@ -13,28 +13,28 @@ export interface IDirectionLayout {
     prev?: ILink
     up?: ILink
   }
-  color: Color
+  color: Exclude<Color, 'text' | 'ghost'>
 }
 const DirectionLayout: FC<IDirectionLayout> = ({ links, color }) => {
   const renderLinks: ILevelItem[] = []
 
   if (links.prev) renderLinks.push({
     content: (
-      <Link to={links.prev.href} aria-label={links.prev.label} className='has-text-dark'>
+      <Link to={links.prev.href} aria-label={links.prev.label} className='has-text-inherit'>
         <Icon size='large' style='solid' name='angles-left' />
       </Link>
     )
   })
   if (links.up) renderLinks.push({
     content: (
-      <Link to={links.up.href} aria-label={links.up.label} className='has-text-dark'>
+      <Link to={links.up.href} aria-label={links.up.label} className='has-text-inherit'>
         <Icon size='large' style='solid' name='angles-up' />
       </Link>
     )
   })
   if (links.next) renderLinks.push({
     content: (
-      <Link to={links.next.href} aria-label={links.next.label} className='has-text-dark'>
+      <Link to={links.next.href} aria-label={links.next.label} className='has-text-inherit'>
         <Icon size='large' style='solid' name='angles-right' />
       </Link>
     )

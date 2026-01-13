@@ -1,12 +1,12 @@
 import type { ILink } from '../../types'
 import React, { type FC } from 'react'
-import { Link } from 'react-router'
 
-import Grid from '../../components/Grid/Grid'
+import Button from '../../components/Button/Button'
 import Cell from '../../components/Grid/Cell'
-import Level from '../../components/Level/Level'
+import Grid from '../../components/Grid/Grid'
 import Icon, { type IIcon } from '../../components/Icon/Icon'
 import * as Icons from '../../components/Icon'
+import Level from '../../components/Level/Level'
 
 export interface ISocialLink extends ILink {
   name: IIcon['name']
@@ -19,21 +19,14 @@ export interface ISocialBrand {
 }
 const SocialBrand: FC<ISocialBrand> = ({ brandIcon, brandSlogan, socialLinks }) => {
   const BrandIcon = Icons[brandIcon]
-  socialLinks?.map(link => ({
-    content: (
-      <Link to={link.href} target='_blank' rel='noopener noreferrer' className='has-text-inherit'>
-        <Icon style={link.style} name={link.name} size='large' />
-      </Link>
-    )
-  }))
 
   return (
     <>
       {socialLinks && <Level mobile nav items={socialLinks?.map(link => ({
         content: (
-          <Link to={link.href} target='_blank' rel='noopener noreferrer' className='has-text-inherit'>
-            <Icon style={link.style} name={link.name} size='large' />
-          </Link>
+          <Button href={link.href} color='text' size='medium' external>
+            <Icon style={link.style} name={link.name} size='medium' />
+          </Button>
         )
       }))} />}
 

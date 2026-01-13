@@ -14,6 +14,7 @@ export default {
     // Bulma Components
     './Block': './src/components/Block/Block',
     './Box': './src/components/Box/Box',
+    './Button': './src/components/Button/Button',
     './Card': './src/components/Card/Card',
     './Cell': './src/components/Grid/Cell',
     './Column': './src/components/Columns/Column',
@@ -33,11 +34,19 @@ export default {
     './Section': './src/components/Section/Section',
 
     // Custom Templates
+    './AnalyticsLink': './src/templates/Analytics/AnalyticsLink',
+    './AnalyticsToast': './src/templates/Analytics/AnalyticsToast',
+    './Loading': './src/templates/Loading/Loading',
+    './ServiceWorker': './src/templates/ServiceWorker/ServiceWorker',
+
+    // Custom Layouts
     './AppLayout': './src/templates/AppLayout/AppLayout',
     './AsideLayout': './src/templates/AsideLayout/AsideLayout',
     './DirectionLayout': './src/templates/DirectionLayout/DirectionLayout',
     './GlobalLayout': './src/templates/GlobalLayout/GlobalLayout',
-    './Loading': './src/templates/Loading/Loading'
+
+    // Contexts
+    './ConsentContext': './src/contexts/ConsentContext',
   },
   shared: {
     ...pkg.dependencies,
