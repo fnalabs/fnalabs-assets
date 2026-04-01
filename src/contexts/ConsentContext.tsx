@@ -22,7 +22,6 @@ export interface IConsentProvider {
   children: React.ReactNode
 }
 const ConsentProvider: FC<IConsentProvider> = ({ children }) => {
-  // TODO: confirm rules/laws around consent and how long we should store it
   const [consent, dispatch] = useReducer(consentReducer, !!Cookies.get('CookieConsent'))
 
   return (

@@ -15,9 +15,13 @@ const ServiceWorker: FC<IServiceWorker> = ({ src, scope }) => {
   useEffect(() => {
     (async () => {
       if ('serviceWorker' in navigator) {
-        const sw = await navigator.serviceWorker.register(src, { scope })
-        navigator.serviceWorker.addEventListener('controllerchange', locationReload)
-        setServiceWorker(sw)
+        try {
+          const sw = await navigator.serviceWorker.register(src, { scope })
+          navigator.serviceWorker.addEventListener('controllerchange', locationReload)
+          setServiceWorker(sw)
+        } catch (err) {
+          console.error('Service worker registration failed:', err)
+        }
       }
     })()
   }, [])

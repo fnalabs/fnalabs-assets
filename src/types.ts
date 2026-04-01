@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react'
-import { IntRange } from 'type-fest'
+import type { IntRange } from 'type-fest'
 
 export type RemoteComponent<T> = Promise<{ default: ComponentType<T> }>
 

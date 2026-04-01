@@ -8,7 +8,6 @@ export interface IAnalyticsToast {
   gaId: string
 }
 const AnalyticsToast: FC<IAnalyticsToast> = ({ gaId }) => {
-  // TODO: confirm rules/laws around consent and how long we should store it
   const [isConsented, setIsConsented] = useState<boolean>(!!Cookies.get('CookieConsent'))
   const dispatch = useContext(ConsentDispatchContext)
 
@@ -37,7 +36,7 @@ const AnalyticsToast: FC<IAnalyticsToast> = ({ gaId }) => {
       buttonClasses='button is-small is-pulled-right is-dark'
       declineButtonClasses='button is-small is-pulled-right is-light'
       buttonWrapperClasses='buttons is-justify-content-end'
-      containerClasses='notification is-primary is-radiusless'
+      containerClasses='notification is-primary is-radiusless mb-0'
       style={{ position: 'fixed', width: '100%' }}
       onAccept={handleAccept}
       onDecline={handleDecline}

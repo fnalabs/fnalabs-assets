@@ -10,9 +10,11 @@ import { InjectManifest } from '@aaroon/workbox-rspack-plugin'
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack'
 import federationConfig from './federationConfig'
 
-const IS_DEV = process.env.NODE_ENV === 'development'
 const ROUTE = process.env.ROUTE ?? '/assets';
 const HOST = process.env.HOST ?? 'http://localhost:2999';
+
+const NODE_ENV = process.env.NODE_ENV || 'production';
+const IS_DEV = NODE_ENV === 'development'
 
 const defaultConfig = {
   entry: { main: join(__dirname, './src/index.tsx') },
@@ -20,7 +22,8 @@ const defaultConfig = {
   output: {
     name: '[name].[contenthash].js',
     path: join(__dirname, `./dist${ROUTE}`),
-    publicPath: `${HOST}${ROUTE}/`
+    publicPath: `${HOST}${ROUTE}/`,
+    clean: true
   },
   module: {
     rules: [
@@ -48,8 +51,9 @@ const defaultConfig = {
   plugins: [
     new ProgressPlugin({}),
     new DefinePlugin({
-      'process.env.ROUTE': JSON.stringify(process.env.ROUTE),
-      'process.env.HOST': JSON.stringify(process.env.HOST),
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+      'process.env.ROUTE': JSON.stringify(ROUTE),
+      'process.env.HOST': JSON.stringify(HOST),
     }),
     new HtmlRspackPlugin({
       template: './index.html',
@@ -85,7 +89,7 @@ const config = () => {
       }
     : {
         ...defaultConfig,
-        output: { ...defaultConfig.output, filename: '[name].[contenthash].js' },
+        output: { ...defaultConfig.output, path: join(__dirname, `./docs${ROUTE}`) },
         devtool: 'source-map',
         optimization: { minimize: true },
         plugins: [
@@ -96,9 +100,8 @@ const config = () => {
               async manifest => {
                 const newManifest = manifest.map(entry => ({
                   ...entry,
-                  url: `${ROUTE}/${entry.url}`,
-                })
-                );
+                  url: entry.url,
+                }));
                 return { manifest: newManifest };
               }
             ],
