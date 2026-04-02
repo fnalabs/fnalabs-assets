@@ -1,0 +1,785 @@
+{
+  "id": "fnalabs_assets",
+  "name": "fnalabs_assets",
+  "metaData": {
+    "name": "fnalabs_assets",
+    "globalName": "fnalabs_assets",
+    "buildInfo": {
+      "buildVersion": "0.0.0",
+      "buildName": "fnalabs_assets"
+    },
+    "publicPath": "https://fnalabs.github.io/fnalabs-assets/assets/",
+    "remoteEntry": {
+      "name": "fnalabs_assets.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "pluginVersion": "2.3.0",
+    "prefetchInterface": false
+  },
+  "shared": [
+    {
+      "id": "fnalabs_assets:react-router",
+      "name": "react-router",
+      "version": "7.13.2",
+      "requiredVersion": "7.13.2",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "725.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "id": "fnalabs_assets:react-ga4",
+      "name": "react-ga4",
+      "version": "3.0.1",
+      "requiredVersion": "3.0.1",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "487.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "id": "fnalabs_assets:react",
+      "name": "react",
+      "version": "19.2.4",
+      "requiredVersion": "19.2.4",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "237.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "id": "fnalabs_assets:react-cookie-consent",
+      "name": "react-cookie-consent",
+      "version": "10.0.1",
+      "requiredVersion": "10.0.1",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "421.js",
+            "802.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "id": "fnalabs_assets:react-dom",
+      "name": "react-dom",
+      "version": "19.2.4",
+      "requiredVersion": "19.2.4",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "717.js",
+            "98.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": []
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "path": "./Loading",
+      "file": "src/templates/Loading/Loading.tsx",
+      "id": "fnalabs_assets:Loading",
+      "name": "Loading",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Loading.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Cell",
+      "file": "src/components/Grid/Cell.tsx",
+      "id": "fnalabs_assets:Cell",
+      "name": "Cell",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Cell.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./brands/FnALabsInverted",
+      "file": "src/components/Icon/FnALabsInverted.tsx",
+      "id": "fnalabs_assets:brands/FnALabsInverted",
+      "name": "brands/FnALabsInverted",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_brands__FnALabsInverted.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Grid",
+      "file": "src/components/Grid/Grid.tsx",
+      "id": "fnalabs_assets:Grid",
+      "name": "Grid",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Grid.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Block",
+      "file": "src/components/Block/Block.tsx",
+      "id": "fnalabs_assets:Block",
+      "name": "Block",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Block.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./brands/HiveIO",
+      "file": "src/components/Icon/HiveIO.tsx",
+      "id": "fnalabs_assets:brands/HiveIO",
+      "name": "brands/HiveIO",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_brands__HiveIO.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Icon",
+      "file": "src/components/Icon/Icon.tsx",
+      "id": "fnalabs_assets:Icon",
+      "name": "Icon",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Icon.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Container",
+      "file": "src/components/Container/Container.tsx",
+      "id": "fnalabs_assets:Container",
+      "name": "Container",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Container.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Card",
+      "file": "src/components/Card/Card.tsx",
+      "id": "fnalabs_assets:Card",
+      "name": "Card",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Card.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Column",
+      "file": "src/components/Columns/Column.tsx",
+      "id": "fnalabs_assets:Column",
+      "name": "Column",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Column.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Level",
+      "file": "src/components/Level/Level.tsx",
+      "id": "fnalabs_assets:Level",
+      "name": "Level",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Level.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./GlobalLayout",
+      "file": "src/templates/GlobalLayout/GlobalLayout.tsx",
+      "id": "fnalabs_assets:GlobalLayout",
+      "name": "GlobalLayout",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_GlobalLayout.js",
+            "__federation_expose_brands__ModuleFederation.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Box",
+      "file": "src/components/Box/Box.tsx",
+      "id": "fnalabs_assets:Box",
+      "name": "Box",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Box.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./AnalyticsLink",
+      "file": "src/templates/Analytics/AnalyticsLink.tsx",
+      "id": "fnalabs_assets:AnalyticsLink",
+      "name": "AnalyticsLink",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_AnalyticsLink.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Media",
+      "file": "src/components/Media/Media.tsx",
+      "id": "fnalabs_assets:Media",
+      "name": "Media",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Media.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./AppLayout",
+      "file": "src/templates/AppLayout/AppLayout.tsx",
+      "id": "fnalabs_assets:AppLayout",
+      "name": "AppLayout",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_AppLayout.js",
+            "__federation_expose_brands__ModuleFederation.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Notification",
+      "file": "src/components/Notification/Notification.tsx",
+      "id": "fnalabs_assets:Notification",
+      "name": "Notification",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Notification.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./brands/ModuleFederation",
+      "file": "src/components/Icon/ModuleFederation.tsx",
+      "id": "fnalabs_assets:brands/ModuleFederation",
+      "name": "brands/ModuleFederation",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_AppLayout.js",
+            "__federation_expose_GlobalLayout.js",
+            "__federation_expose_Navbar.js",
+            "__federation_expose_brands__ModuleFederation.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Columns",
+      "file": "src/components/Columns/Columns.tsx",
+      "id": "fnalabs_assets:Columns",
+      "name": "Columns",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Columns.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./DirectionLayout",
+      "file": "src/templates/DirectionLayout/DirectionLayout.tsx",
+      "id": "fnalabs_assets:DirectionLayout",
+      "name": "DirectionLayout",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_DirectionLayout.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./AnalyticsToast",
+      "file": "src/templates/Analytics/AnalyticsToast.tsx",
+      "id": "fnalabs_assets:AnalyticsToast",
+      "name": "AnalyticsToast",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_AnalyticsToast.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Section",
+      "file": "src/components/Section/Section.tsx",
+      "id": "fnalabs_assets:Section",
+      "name": "Section",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Section.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Footer",
+      "file": "src/components/Footer/Footer.tsx",
+      "id": "fnalabs_assets:Footer",
+      "name": "Footer",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Footer.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Image",
+      "file": "src/components/Image/Image.tsx",
+      "id": "fnalabs_assets:Image",
+      "name": "Image",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Image.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Navbar",
+      "file": "src/components/Navbar/Navbar.tsx",
+      "id": "fnalabs_assets:Navbar",
+      "name": "Navbar",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Navbar.js",
+            "__federation_expose_brands__ModuleFederation.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./brands/OpenTelemetry",
+      "file": "src/components/Icon/OpenTelemetry.tsx",
+      "id": "fnalabs_assets:brands/OpenTelemetry",
+      "name": "brands/OpenTelemetry",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_brands__OpenTelemetry.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./ProgressBar",
+      "file": "src/components/ProgressBar/ProgressBar.tsx",
+      "id": "fnalabs_assets:ProgressBar",
+      "name": "ProgressBar",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_ProgressBar.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./ServiceWorker",
+      "file": "src/templates/ServiceWorker/ServiceWorker.tsx",
+      "id": "fnalabs_assets:ServiceWorker",
+      "name": "ServiceWorker",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_ServiceWorker.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./brands/FnALabs",
+      "file": "src/components/Icon/FnALabs.tsx",
+      "id": "fnalabs_assets:brands/FnALabs",
+      "name": "brands/FnALabs",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_brands__FnALabs.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Hero",
+      "file": "src/components/Hero/Hero.tsx",
+      "id": "fnalabs_assets:Hero",
+      "name": "Hero",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Hero.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./AsideLayout",
+      "file": "src/templates/AsideLayout/AsideLayout.tsx",
+      "id": "fnalabs_assets:AsideLayout",
+      "name": "AsideLayout",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_AsideLayout.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./ConsentContext",
+      "file": "src/contexts/ConsentContext.tsx",
+      "id": "fnalabs_assets:ConsentContext",
+      "name": "ConsentContext",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_ConsentContext.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Button",
+      "file": "src/components/Button/Button.tsx",
+      "id": "fnalabs_assets:Button",
+      "name": "Button",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Button.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./Menu",
+      "file": "src/components/Menu/Menu.tsx",
+      "id": "fnalabs_assets:Menu",
+      "name": "Menu",
+      "requires": [],
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Menu.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    }
+  ]
+}
