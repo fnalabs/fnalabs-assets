@@ -1,8 +1,8 @@
 import { join } from 'path'
 import {
+  CopyRspackPlugin,
   DefinePlugin,
   HotModuleReplacementPlugin,
-  HtmlRspackPlugin,
   ProgressPlugin,
 } from '@rspack/core'
 import refreshPlugin from '@rspack/plugin-react-refresh'
@@ -55,13 +55,12 @@ const defaultConfig = {
       'process.env.ROUTE': JSON.stringify(ROUTE),
       'process.env.HOST': JSON.stringify(HOST),
     }),
-    new HtmlRspackPlugin({
-      template: './index.html',
-      filename: 'index.html',
-      inject: true,
-      publicPath: ROUTE,
-    }),
     new ModuleFederationPlugin(federationConfig),
+    new CopyRspackPlugin({
+      patterns: [
+        { from: './index.html', to: '../index.html' },
+      ],
+    }),
   ],
 }
 
