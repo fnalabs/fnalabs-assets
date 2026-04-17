@@ -94,13 +94,15 @@ const config = () => {
         plugins: [
           ...defaultConfig.plugins,
           new InjectManifest({
-            dontCacheBustURLsMatching: /\.\w{8}\./,
             manifestTransforms: [
               async manifest => {
-                const newManifest = manifest.map(entry => ({
-                  ...entry,
-                  url: entry.url,
-                }));
+                const newManifest = manifest.reduce((acc, entry) => {
+                  if (entry.url.endsWith('index.html')) return acc;
+                  // @ts-ignore missing types
+                  acc.push(entry);
+
+                  return acc;
+                }, []);
                 return { manifest: newManifest };
               }
             ],
