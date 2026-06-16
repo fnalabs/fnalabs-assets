@@ -6,7 +6,7 @@ export interface INotification {
   color?: Exclude<Color, 'text' | 'ghost'>
   light?: boolean
   close?: boolean
-  onClose?: () => {}
+  onClose?: () => void
 }
 const Notification: FC<INotification> = ({ children, color, light, close, onClose }) => {
   const colorClass = color ? ` is-${color}` : ''

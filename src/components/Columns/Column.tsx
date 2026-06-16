@@ -34,7 +34,7 @@ const Column: FC<IColumn> = ({
   if ((fractionSize && numericSizeOffset) || (fractionSizeOffset && numericSize))
     throw new TypeError('Column Sizes and Offsets units of measure must match (either fractions or numeric)')
 
-  if (hiddenTouch) return <header className="column is-narrow is-hidden-touch">{children}</header>
+  if (hiddenTouch) return <div className="column is-hidden-touch">{children}</div>
 
   const contentClass = content ? ' content' : ''
   const narrowClass = Array.isArray(narrow)

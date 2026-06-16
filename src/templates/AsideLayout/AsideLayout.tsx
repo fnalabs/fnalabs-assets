@@ -1,4 +1,4 @@
-import type { IMenuList } from '../../components/Menu/Menu'
+import type { IMenuList, IMenuLink } from '../../components/Menu/Menu'
 
 import React, { type FC } from 'react'
 import { NavLink, Outlet } from 'react-router'
@@ -6,6 +6,27 @@ import { NavLink, Outlet } from 'react-router'
 import Column from '../../components/Columns/Column'
 import Columns from '../../components/Columns/Columns'
 import Container from '../../components/Container/Container'
+import Icon from '../../components/Icon/Icon'
+
+const isActiveClass = ({ isActive, isPending }: { isActive: boolean, isPending: boolean }) =>  isPending
+    ? "is-active"
+    : isActive
+      ? "is-active"
+      : ""
+
+const renderNavLink = (link: IMenuLink) =>
+  link.external
+    ? (
+        <NavLink to={link.href} className={isActiveClass} target="_blank" rel="noopener noreferrer">
+          {link.label}{" "}
+          <Icon style='solid' name='arrow-up-right-from-square' size='small' />
+        </NavLink>
+      )
+    : (
+        <NavLink to={link.href} className={isActiveClass}>
+          {link.label}
+        </NavLink>
+      )
 
 export interface IAsideLayout {
   list: IMenuList[]
@@ -24,27 +45,11 @@ const AsideLayout: FC<IAsideLayout> = ({ list }) => (
                     if (link.list) {
                       return (
                         <li>
-                          <NavLink
-                            to={link.href}
-                            className={({ isActive, isPending }) =>
-                              isPending
-                                ? "is-active"
-                                : isActive
-                                  ? "is-active"
-                                  : ""
-                          }>{link.label}</NavLink>
+                          {renderNavLink(link)}
                           <ul>
                             {link.list.map(nestedLink => (
                               <li>
-                                <NavLink
-                                  to={nestedLink.href}
-                                  className={({ isActive, isPending }) =>
-                                    isPending
-                                      ? "is-active"
-                                      : isActive
-                                        ? "is-active"
-                                        : ""
-                                }>{nestedLink.label}</NavLink>
+                                {renderNavLink(nestedLink)}
                               </li>
                             ))}
                           </ul>
@@ -53,15 +58,7 @@ const AsideLayout: FC<IAsideLayout> = ({ list }) => (
                     } else {
                       return (
                         <li>
-                          <NavLink
-                            to={link.href}
-                            className={({ isActive, isPending }) =>
-                              isPending
-                                ? "is-active"
-                                : isActive
-                                  ? "is-active"
-                                  : ""
-                          }>{link.label}</NavLink>
+                          {renderNavLink(link)}
                         </li>
                       )
                     }
