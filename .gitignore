@@ -1,4 +1,7 @@
-.swc
+# Project specific
+.env
+.mf
+diagnostics
 dist
 
 # Logs
@@ -14,11 +17,6 @@ pids
 # Coverage directory used by tools like istanbul
 coverage
 coverage.lcov
-
-# next.js
-/.next/
-/out/
-.env.local
 
 # production
 /build
@@ -40,4 +38,3 @@ jspm_packages
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts

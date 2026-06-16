@@ -1,11 +1,6 @@
 import { join } from 'path'
-import {
-  CopyRspackPlugin,
-  DefinePlugin,
-  HotModuleReplacementPlugin,
-  ProgressPlugin,
-} from '@rspack/core'
-import refreshPlugin from '@rspack/plugin-react-refresh'
+import { CopyRspackPlugin, DefinePlugin, ProgressPlugin } from '@rspack/core'
+import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh'
 import { InjectManifest } from '@aaroon/workbox-rspack-plugin'
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack'
 import federationConfig from './federationConfig'
@@ -41,7 +36,9 @@ const defaultConfig = {
                 parser: { syntax: 'typescript', tsx: true },
                 transform: { react: { runtime: 'automatic', development: IS_DEV, refresh: IS_DEV } },
               },
-              env: { targets: ['chrome >= 87', 'edge >= 88', 'firefox >= 78', 'safari >= 14'] },
+              env: { targets: [
+                'defaults and fully supports es6-module',
+              ]},
             },
           },
         ],
@@ -81,8 +78,7 @@ const config = () => {
         devtool: 'eval',
         plugins: [
           ...defaultConfig.plugins,
-          new HotModuleReplacementPlugin(),
-          new refreshPlugin(),
+          new ReactRefreshRspackPlugin(),
         ],
         watch: true,
       }
