@@ -1,8 +1,11 @@
 import type { ILink } from '../../types'
 import React, { FC } from 'react'
 import { Link } from 'react-router'
+import Icon from '../Icon/Icon'
+import { link } from 'fs/promises'
 
 export interface IMenuLink extends ILink {
+  external?: boolean
   list?: IMenuLink[]
 }
 export interface IMenuList {
@@ -14,6 +17,18 @@ export interface IMenu {
   list: IMenuList[]
 }
 
+const renderLink = (link: IMenuLink) =>
+  link.external
+    ? (
+        <Link to={link.href} target="_blank" rel="noopener noreferrer">
+          {link.label}{" "}
+          <Icon style='solid' name='arrow-up-right-from-square' size='small' />
+        </Link>
+      )
+    : (
+        <Link to={link.href}>{link.label}</Link>
+      )
+
 const Menu: FC<IMenu> = ({ list }) => (
   <nav className="menu mb-6">
     {list.map(val => (
@@ -24,11 +39,11 @@ const Menu: FC<IMenu> = ({ list }) => (
             if (link.list) {
               return (
                 <li>
-                  <Link to={link.href}>{link.label}</Link>
+                  {renderLink(link)}
                   <ul>
                     {link.list.map(nestedLink => (
                       <li>
-                        <Link to={nestedLink.href}>{nestedLink.label}</Link>
+                        {renderLink(nestedLink)}
                       </li>
                     ))}
                   </ul>
@@ -37,7 +52,7 @@ const Menu: FC<IMenu> = ({ list }) => (
             } else {
               return (
                 <li>
-                  <Link to={link.href}>{link.label}</Link>
+                  {renderLink(link)}
                 </li>
               )
             }

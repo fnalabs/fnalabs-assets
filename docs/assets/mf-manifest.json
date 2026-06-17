@@ -20,20 +20,19 @@
       "zip": "@mf-types.zip",
       "api": "@mf-types.d.ts"
     },
-    "pluginVersion": "2.3.0",
-    "prefetchInterface": false
+    "pluginVersion": "2.5.1"
   },
   "shared": [
     {
       "id": "fnalabs_assets:react-router",
       "name": "react-router",
-      "version": "7.13.2",
+      "version": "7.17.0",
       "singleton": true,
-      "requiredVersion": "7.13.2",
+      "requiredVersion": "7.17.0",
       "assets": {
         "js": {
           "sync": [
-            "725.js"
+            "431.js"
           ],
           "async": []
         },
@@ -63,15 +62,16 @@
       }
     },
     {
-      "id": "fnalabs_assets:react",
-      "name": "react",
-      "version": "19.2.4",
+      "id": "fnalabs_assets:react-dom",
+      "name": "react-dom",
+      "version": "19.2.7",
       "singleton": true,
-      "requiredVersion": "19.2.4",
+      "requiredVersion": "19.2.7",
       "assets": {
         "js": {
           "sync": [
-            "237.js"
+            "717.js",
+            "98.js"
           ],
           "async": []
         },
@@ -102,16 +102,15 @@
       }
     },
     {
-      "id": "fnalabs_assets:react-dom",
-      "name": "react-dom",
-      "version": "19.2.4",
+      "id": "fnalabs_assets:react",
+      "name": "react",
+      "version": "19.2.7",
       "singleton": true,
-      "requiredVersion": "19.2.4",
+      "requiredVersion": "19.2.7",
       "assets": {
         "js": {
           "sync": [
-            "717.js",
-            "98.js"
+            "237.js"
           ],
           "async": []
         },
@@ -174,6 +173,24 @@
         }
       },
       "path": "./brands/FnALabsInverted"
+    },
+    {
+      "id": "fnalabs_assets:SocialBrand",
+      "name": "SocialBrand",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_SocialBrand.js",
+            "__federation_expose_brands__ModuleFederation.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "./SocialBrand"
     },
     {
       "id": "fnalabs_assets:Grid",
@@ -424,6 +441,7 @@
             "__federation_expose_AppLayout.js",
             "__federation_expose_GlobalLayout.js",
             "__federation_expose_Navbar.js",
+            "__federation_expose_SocialBrand.js",
             "__federation_expose_brands__ModuleFederation.js"
           ],
           "async": []

@@ -82,7 +82,7 @@ const Navbar: FC<INavbar> = ({ brandLink, startLinks, endLinks, color, fixed, sp
     <nav className={`navbar${colorClass}${fixedClass}${spacedClass}${shadedClass}`} role="navigation" aria-label="main navigation">
       <Container>
         <div className="navbar-brand">
-          <Link to={brandLink[0].href} className="navbar-item">
+          <Link to={brandLink[0].href} aria-label={brandLink[0].label} className="navbar-item">
             <span className="icon is-large">
               <BrandIcon />
             </span>
@@ -91,7 +91,7 @@ const Navbar: FC<INavbar> = ({ brandLink, startLinks, endLinks, color, fixed, sp
           {brandLink[1] && (
             <>
               <span className='is-size-2'>|</span>
-              <Link to={brandLink[1].href} className="navbar-item">
+              <Link to={brandLink[1].href} aria-label={brandLink[1].label} className="navbar-item">
                 <span className="icon is-large">
                   <SubBrandIcon />
                 </span>

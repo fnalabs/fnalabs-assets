@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack://fnalabs_assets/./src/Worker.ts"],"names":["self"],"mappings":"AACA,KAAK,oBAAoB,CAAG,o/LAAK,aAAa","file":"sw.js","sourcesContent":["// @ts-expect-error skipping this check\nself.__WB_ASSETS_MANIFEST = self.__WB_MANIFEST\n"]}
+{"version":3,"sources":["webpack://fnalabs_assets/./src/Worker.ts"],"names":["self"],"mappings":"AACA,KAAK,oBAAoB,CAAG,goMAAK,aAAa","file":"sw.js","sourcesContent":["// @ts-expect-error skipping this check\nself.__WB_ASSETS_MANIFEST = self.__WB_MANIFEST\n"]}

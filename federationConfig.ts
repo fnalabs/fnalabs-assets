@@ -38,6 +38,7 @@ export default {
     './AnalyticsToast': './src/templates/Analytics/AnalyticsToast',
     './Loading': './src/templates/Loading/Loading',
     './ServiceWorker': './src/templates/ServiceWorker/ServiceWorker',
+    './SocialBrand': './src/templates/SocialBrand/SocialBrand',
 
     // Custom Layouts
     './AppLayout': './src/templates/AppLayout/AppLayout',

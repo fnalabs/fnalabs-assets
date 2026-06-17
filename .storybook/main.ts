@@ -1,16 +1,12 @@
 import type { StorybookConfig } from 'storybook-react-rsbuild'
-import { dirname, join } from 'node:path'
-
-function getAbsolutePath(value: string): string {
-  return dirname(require.resolve(join(value, 'package.json')))
-}
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-links',
-    getAbsolutePath("@storybook/addon-docs")
+    "@storybook/addon-docs",
+    '@storybook/addon-onboarding',
   ],
   framework: {
     name: 'storybook-react-rsbuild',
@@ -32,7 +28,7 @@ const config: StorybookConfig = {
   },
   webpackAddons: [
     {
-      name: getAbsolutePath('@storybook/addon-coverage'),
+      name: '@storybook/addon-coverage',
       options: {
         istanbul: {
           exclude: [],

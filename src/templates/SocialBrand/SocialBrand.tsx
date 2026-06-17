@@ -24,7 +24,7 @@ const SocialBrand: FC<ISocialBrand> = ({ brandIcon, brandSlogan, socialLinks }) 
     <>
       {socialLinks && <Level mobile nav items={socialLinks?.map(link => ({
         content: (
-          <Button href={link.href} color='text' size='medium' external>
+          <Button href={link.href} color='text' size='medium' label={link.label} external>
             <Icon style={link.style} name={link.name} size='medium' />
           </Button>
         )

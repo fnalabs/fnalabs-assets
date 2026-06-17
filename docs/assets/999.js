@@ -1,0 +1,2 @@
+"use strict";(self.rspackChunkfnalabs_assets=self.rspackChunkfnalabs_assets||[]).push([[999],{5792(s,e,a){var r=a(4848),t=a(5338);let n=document.getElementById("root");(0,t.createRoot)(n).render((0,r.jsx)(()=>(0,r.jsx)("div",{children:(0,r.jsx)("h1",{children:"FnA Labs - Federated Assets Library"})}),{}))}}]);
+//# sourceMappingURL=999.js.map

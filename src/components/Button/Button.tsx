@@ -9,6 +9,7 @@ export interface IButton {
   children: ReactNode
   onClick?: () => void
   href?: string
+  label?: string
   color?: Color
   colorMode?: 'light' | 'dark'
   size?: Exclude<GenericSize, 'fullheight'>
@@ -25,6 +26,7 @@ const Button: FC<IButton> = ({
   children,
   onClick = () => {},
   href,
+  label,
   color,
   colorMode,
   size,
@@ -60,6 +62,7 @@ const Button: FC<IButton> = ({
       linkProps.rel = 'noopener noreferrer'
     }
     if (disabled) linkProps['aria-disabled'] = 'true'
+    if (label) linkProps['aria-label'] = label
 
     return (
       <Link to={href} className={combinedClasses} onClick={handleClick} {...linkProps}>

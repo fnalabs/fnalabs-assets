@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfnalabs_assets=self.webpackChunkfnalabs_assets||[]).push([["13"],{2272(e,s,a){var t=a(4848),r=a(5338);let n=document.getElementById("root");(0,r.createRoot)(n).render((0,t.jsx)(()=>(0,t.jsx)("div",{children:(0,t.jsx)("h1",{children:"FnA Labs - Federated Assets Library"})}),{}))}}]);
-//# sourceMappingURL=13.js.map
