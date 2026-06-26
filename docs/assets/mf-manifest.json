@@ -20,28 +20,9 @@
       "zip": "@mf-types.zip",
       "api": "@mf-types.d.ts"
     },
-    "pluginVersion": "2.5.1"
+    "pluginVersion": "2.6.0"
   },
   "shared": [
-    {
-      "id": "fnalabs_assets:react-router",
-      "name": "react-router",
-      "version": "7.17.0",
-      "singleton": true,
-      "requiredVersion": "7.17.0",
-      "assets": {
-        "js": {
-          "sync": [
-            "431.js"
-          ],
-          "async": []
-        },
-        "css": {
-          "sync": [],
-          "async": []
-        }
-      }
-    },
     {
       "id": "fnalabs_assets:react-ga4",
       "name": "react-ga4",
@@ -52,6 +33,25 @@
         "js": {
           "sync": [
             "487.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "id": "fnalabs_assets:react-router",
+      "name": "react-router",
+      "version": "8.0.1",
+      "singleton": true,
+      "requiredVersion": "8.0.1",
+      "assets": {
+        "js": {
+          "sync": [
+            "947.js"
           ],
           "async": []
         },
