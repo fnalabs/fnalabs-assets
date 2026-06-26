@@ -20,32 +20,9 @@
       "zip": "@mf-types.zip",
       "api": "@mf-types.d.ts"
     },
-    "pluginVersion": "2.5.1"
+    "pluginVersion": "2.6.0"
   },
   "shared": [
-    {
-      "id": "fnalabs_assets:react-router",
-      "name": "react-router",
-      "version": "7.17.0",
-      "requiredVersion": "7.17.0",
-      "singleton": true,
-      "assets": {
-        "js": {
-          "sync": [
-            "431.js"
-          ],
-          "async": []
-        },
-        "css": {
-          "sync": [],
-          "async": []
-        }
-      },
-      "usedIn": [
-        "src/components/Menu/Menu.tsx"
-      ],
-      "usedExports": []
-    },
     {
       "id": "fnalabs_assets:react-ga4",
       "name": "react-ga4",
@@ -65,7 +42,30 @@
         }
       },
       "usedIn": [
-        "src/templates/Analytics/AnalyticsLink.tsx"
+        "src/templates/Analytics/AnalyticsToast.tsx"
+      ],
+      "usedExports": []
+    },
+    {
+      "id": "fnalabs_assets:react-router",
+      "name": "react-router",
+      "version": "8.0.1",
+      "requiredVersion": "8.0.1",
+      "singleton": true,
+      "assets": {
+        "js": {
+          "sync": [
+            "947.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "usedIn": [
+        "src/templates/ServiceWorker/ServiceWorker.tsx"
       ],
       "usedExports": []
     },
@@ -134,7 +134,7 @@
         }
       },
       "usedIn": [
-        "src/components/Icon/FnALabs.tsx"
+        "src/components/ProgressBar/ProgressBar.tsx"
       ],
       "usedExports": []
     }
@@ -414,9 +414,7 @@
       "file": "src/templates/Analytics/AnalyticsLink.tsx",
       "id": "fnalabs_assets:AnalyticsLink",
       "name": "AnalyticsLink",
-      "requires": [
-        "react-ga4"
-      ],
+      "requires": [],
       "assets": {
         "js": {
           "sync": [
@@ -554,7 +552,9 @@
       "file": "src/templates/Analytics/AnalyticsToast.tsx",
       "id": "fnalabs_assets:AnalyticsToast",
       "name": "AnalyticsToast",
-      "requires": [],
+      "requires": [
+        "react-ga4"
+      ],
       "assets": {
         "js": {
           "sync": [
@@ -669,7 +669,9 @@
       "file": "src/components/ProgressBar/ProgressBar.tsx",
       "id": "fnalabs_assets:ProgressBar",
       "name": "ProgressBar",
-      "requires": [],
+      "requires": [
+        "react"
+      ],
       "assets": {
         "js": {
           "sync": [
@@ -688,7 +690,9 @@
       "file": "src/templates/ServiceWorker/ServiceWorker.tsx",
       "id": "fnalabs_assets:ServiceWorker",
       "name": "ServiceWorker",
-      "requires": [],
+      "requires": [
+        "react-router"
+      ],
       "assets": {
         "js": {
           "sync": [
@@ -707,9 +711,7 @@
       "file": "src/components/Icon/FnALabs.tsx",
       "id": "fnalabs_assets:brands/FnALabs",
       "name": "brands/FnALabs",
-      "requires": [
-        "react"
-      ],
+      "requires": [],
       "assets": {
         "js": {
           "sync": [
@@ -806,9 +808,7 @@
       "file": "src/components/Menu/Menu.tsx",
       "id": "fnalabs_assets:Menu",
       "name": "Menu",
-      "requires": [
-        "react-router"
-      ],
+      "requires": [],
       "assets": {
         "js": {
           "sync": [
