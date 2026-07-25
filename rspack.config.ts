@@ -1,4 +1,3 @@
-import { join } from 'path'
 import { CopyRspackPlugin, DefinePlugin, ProgressPlugin } from '@rspack/core'
 import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh'
 import { InjectManifest } from '@aaroon/workbox-rspack-plugin'
@@ -12,11 +11,11 @@ const NODE_ENV = process.env.NODE_ENV || 'production';
 const IS_DEV = NODE_ENV === 'development'
 
 const defaultConfig = {
-  entry: { main: join(__dirname, './src/index.tsx') },
+  entry: { main: './src/index.tsx' },
   resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
   output: {
     name: '[name].[contenthash].js',
-    path: join(__dirname, `./dist${ROUTE}`),
+    path: `./dist${ROUTE}`,
     publicPath: `${HOST}${ROUTE}/`,
     clean: true
   },
@@ -67,7 +66,7 @@ const config = () => {
         ...defaultConfig,
         devServer: {
           port: 2999,
-          static: { directory: join(__dirname, `./dist${ROUTE}`) },
+          static: { directory: `./dist${ROUTE}` },
           liveReload: true,
           headers: {
             'Access-Control-Allow-Origin': '*',
@@ -84,7 +83,7 @@ const config = () => {
       }
     : {
         ...defaultConfig,
-        output: { ...defaultConfig.output, path: join(__dirname, `./docs${ROUTE}`) },
+        output: { ...defaultConfig.output, path: `./docs${ROUTE}` },
         devtool: 'source-map',
         optimization: { minimize: true },
         plugins: [
@@ -103,7 +102,7 @@ const config = () => {
               }
             ],
             swDest: 'sw.js',
-            swSrc: join(__dirname, './src/Worker.ts'),
+            swSrc: './src/Worker.ts',
           }),
         ],
       }
