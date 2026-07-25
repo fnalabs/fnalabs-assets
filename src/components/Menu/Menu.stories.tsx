@@ -7,13 +7,11 @@ import Menu from './Menu'
 const meta = {
   title: 'Bulma/Components/Menu',
   component: Menu,
-  decorators: [
-    Story => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
+  decorators: [Story => (
+    <MemoryRouter>
+      <Story />
+    </MemoryRouter>
+  )],
   tags: ['autodocs'],
 } satisfies Meta<typeof Menu>
 export default meta
@@ -37,11 +35,11 @@ export const Basic: Story = {
       },
     ],
   },
-  play: async ({ args, canvasElement }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.list[0].label)).toBeVisible()
-    await expect(canvas.getByText(args.list[0].list[0].label)).toBeVisible()
-    await expect(canvas.getByText(args.list[0].list[1].label)).toBeVisible()
+    await expect(canvas.getByText('Label')).toBeVisible()
+    await expect(canvas.getByText('Link 1')).toBeVisible()
+    await expect(canvas.getByText('Link 2')).toBeVisible()
   },
 }
 export const WithNested: Story = {
@@ -72,12 +70,12 @@ export const WithNested: Story = {
       },
     ],
   },
-  play: async ({ args, canvasElement }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.list[0].label)).toBeVisible()
-    await expect(canvas.getByText(args.list[0].list[0].label)).toBeVisible()
-    await expect(canvas.getByText(args.list[0].list[1].label)).toBeVisible()
-    // await expect(canvas.getByText(args.list[0].list[1].list[0].label)).toBeVisible()
-    // await expect(canvas.getByText(args.list[0].list[1].list[1].label)).toBeVisible()
+    await expect(canvas.getByText('Label')).toBeVisible()
+    await expect(canvas.getByText('Link 1')).toBeVisible()
+    await expect(canvas.getByText('Link 2')).toBeVisible()
+    await expect(canvas.getByText('Link 3')).toBeVisible()
+    await expect(canvas.getByText('Link 4')).toBeVisible()
   },
 }

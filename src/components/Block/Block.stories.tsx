@@ -1,36 +1,36 @@
 import type { Meta, StoryObj } from 'storybook-react-rsbuild'
 import { expect, within } from 'storybook/test'
 
-import Box from './Box'
+import Block from './Block'
 
 const meta = {
-  title: 'Bulma/Elements/Box',
-  component: Box,
+  title: 'Bulma/Elements/Block',
+  component: Block,
   tags: ['autodocs'],
-} satisfies Meta<typeof Box>
+} satisfies Meta<typeof Block>
 export default meta
 
 type Story = StoryObj<typeof meta>
 export const Basic: Story = {
   args: {
-    children: 'I\'m in a box.',
+    children: 'This text is within a block.',
+    content: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('I\'m in a box.')).toBeVisible()
+    await expect(canvas.getByText('This text is within a block.')).toBeVisible()
   },
 }
 
-export const FullHeight: Story = {
+export const Article: Story = {
   args: {
-    fullheight: true,
-    children: 'I\'m in a box.',
+    article: true,
+    children: 'This text is within a block.',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
 
-    const box = canvas.getByText('I\'m in a box.')
+    const box = canvas.getByText('This text is within a block.')
     await expect(box).toBeVisible()
-    await expect(box).toHaveClass('is-fullheight')
   },
 }

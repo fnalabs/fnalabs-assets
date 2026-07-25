@@ -20,15 +20,15 @@ export const ContentOnly: Story = {
     await expect(canvas.getByText(args.children as string)).toBeVisible()
   },
 }
-export const WithTitle: Story = {
+export const WithHeader: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
-    title: 'Card Title',
+    header: 'Card Header',
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText(args.children as string)).toBeVisible()
-    await expect(canvas.getByText(args.title as string)).toBeVisible()
+    await expect(canvas.getByText(args.header as string)).toBeVisible()
   },
 }
 export const WithFooter: Story = {
@@ -51,16 +51,5 @@ export const WithImage: Story = {
     const canvas = within(canvasElement)
     await expect(canvas.getByText(args.children as string)).toBeVisible()
     await expect(canvas.getByText(args.image as string)).toBeVisible()
-  },
-}
-export const WithCustomClass: Story = {
-  args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
-    className: 'test',
-  },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
-    // await expect(canvas.getByText(args.title as string)).toBeVisible()
   },
 }

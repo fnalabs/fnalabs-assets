@@ -14,10 +14,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 export const BasicNavbar: Story = {
   args: {
+    color: 'dark',
+    brandLink: [{
+      brandIcon: 'FnALabsInverted',
+      href: 'https://fnalabs.com',
+      label: 'Home',
+    }],
     startLinks: [
       { href: '/', label: 'Home' },
       { href: '/documentation', label: 'Documentation' },
-      { href: '/more', label: 'More', children: [
+      { href: '/more', label: 'More', list: [
         { href: '/about', label: 'About' },
         { href: '/jobs', label: 'Jobs' },
         { href: '/contact', label: 'Contact', divider: true },
@@ -29,13 +35,13 @@ export const BasicNavbar: Story = {
       { href: '/login', label: 'Login', button: true, color: 'light' },
     ],
   },
-  decorators: [(Story) => (
+  decorators: [Story => (
     <MemoryRouter>
       <Story />
     </MemoryRouter>
   )],
-  play: async ({ args, canvasElement }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.startLinks[0].label)).toBeVisible()
+    await expect(canvas.getByText('Home')).toBeVisible()
   },
 }

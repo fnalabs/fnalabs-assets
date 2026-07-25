@@ -15,14 +15,12 @@ export const ContentOnly: Story = {
   args: {
     imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
     imgSrc: 'https://fnalabs.github.io/fnalabs-assets/assets/fnalabs/adam.96x96.png',
-    subtitle: 'Subtitle',
-    title: 'Title',
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
     // await expect(canvas.getByText(args.imgAlt as string)).toBeVisible()
     // await expect(canvas.getByText(args.imgSrc as string)).toBeVisible()
-    await expect(canvas.getByText(args.subtitle as string)).toBeVisible()
-    await expect(canvas.getByText(args.title as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string)).toBeVisible()
   },
 }

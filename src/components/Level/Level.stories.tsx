@@ -50,3 +50,16 @@ export const IsCentered: Story = {
     await expect(canvas.getByText(args.items[0].content)).toBeVisible()
   },
 }
+
+export const IsNav: Story = {
+  args: {
+    items: [{ content: 'test 1' }],
+    nav: true,
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    await expect(canvas.getByText(args.items[0].content)).toBeVisible()
+    await expect(canvas.getByRole('navigation')).toBeVisible()
+  },
+}

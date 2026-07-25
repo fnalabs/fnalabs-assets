@@ -29,8 +29,8 @@ export const IsCenteredAndBold: Story = {
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText(args.children as string)).toBeVisible()
-    // await expect(canvas.getByText(args.title as string)).toBeVisible()
-    // await expect(canvas.getByText(args.title as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string)).toHaveClass('has-text-centered')
+    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-bold')
   },
 }
 export const HasColorAndSize: Story = {
@@ -42,8 +42,8 @@ export const HasColorAndSize: Story = {
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText(args.children as string)).toBeVisible()
-    // await expect(canvas.getByText(args.title as string)).toBeVisible()
-    // await expect(canvas.getByText(args.title as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-dark')
+    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-medium')
   },
 }
 export const WithFooter: Story = {
@@ -65,6 +65,17 @@ export const WithCustomClass: Story = {
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText(args.children as string)).toBeVisible()
-    // await expect(canvas.getByText(args.title as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('test')
+  },
+}
+export const WithNavbar: Story = {
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
+    withNavbar: true,
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText(args.children as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-fullheight-with-navbar')
   },
 }
