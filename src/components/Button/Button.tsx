@@ -1,24 +1,42 @@
-import type { ButtonStyle, ButtonType, Color, GenericSize } from '../../types'
-import React, { type FC, type ReactNode } from 'react'
+import type { ButtonStyle, ButtonType, Color, GenericSize, States } from '../../types'
+import { type FC, type ReactNode, useContext } from 'react'
 import { Link } from 'react-router'
 import ReactGA from 'react-ga4'
 import Icon from '../Icon/Icon'
 import { ConsentContext } from '../../contexts/ConsentContext'
 
 export interface IButton {
+  /** Child content to render in the Button. */
   children: ReactNode
+  /** Optional click handler for the Button. */
   onClick?: () => void
+  /** Optional href for the Button to render as a link. */
   href?: string
+  /** Optional label for the Button to provide additional context for screen readers. */
   label?: string
+  /** Optional color for the Button. */
   color?: Color
+  /** Optional color mode for the Button. */
   colorMode?: 'light' | 'dark'
+  /** Optional selected state for the Button. */
+  selected?: boolean
+  /** Optional size for the Button. */
   size?: Exclude<GenericSize, 'fullheight'>
+  /** Optional state for the Button. */
+  state?: States
+  /** Optional style for the Button. */
   style?: ButtonStyle
+  /** Optional type for the Button. */
   type?: ButtonType
+  /** Optional icon to render before the Button content. */
   beforeIcon?: string
+  /** Optional icon to render after the Button content. */
   afterIcon?: string
+  /** Optional disabled state for the Button. */
   disabled?: boolean
+  /** Optional external link state for the Button. */
   external?: boolean
+  /** Optional full width state for the Button. */
   fullWidth?: boolean
 }
 
@@ -29,7 +47,9 @@ const Button: FC<IButton> = ({
   label,
   color,
   colorMode,
+  selected,
   size,
+  state,
   style,
   type = 'button',
   beforeIcon,
@@ -38,13 +58,15 @@ const Button: FC<IButton> = ({
   external,
   fullWidth,
 }) => {
-  const consent = React.useContext(ConsentContext)
+  const consent = useContext(ConsentContext)
   const colorClass = color ? ` is-${color}` : ''
   const colorModeClass = colorMode ? ` is-${colorMode}` : ''
+  const selectedClass = selected ? ' is-selected' : ''
   const sizeClass = size ? ` is-${size}` : ''
+  const stateClass = state ? ` is-${state}` : ''
   const styleClass = style ? ` is-${style}` : ''
   const fullWidthClass = fullWidth ? ' is-fullwidth' : ''
-  const combinedClasses = `button${colorClass}${colorModeClass}${sizeClass}${styleClass}${fullWidthClass}`
+  const combinedClasses = `button${colorClass}${colorModeClass}${selectedClass}${sizeClass}${stateClass}${styleClass}${fullWidthClass}`
 
   if (href) {
     const handleClick = () => {

@@ -1,3 +1,4 @@
+import type { FC, ReactNode } from 'react'
 import type {
   BreakpointColumn,
   FractionSize,
@@ -7,7 +8,6 @@ import type {
   TextPosition,
   TextPositions,
 } from '../../types'
-import React, { FC, ReactNode } from 'react'
 
 export interface IColumn {
   children?: ReactNode

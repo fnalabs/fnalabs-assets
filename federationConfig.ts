@@ -15,6 +15,7 @@ export default {
     './Block': './src/components/Block/Block',
     './Box': './src/components/Box/Box',
     './Button': './src/components/Button/Button',
+    "./Buttons": "./src/components/Button/Buttons",
     './Card': './src/components/Card/Card',
     './Cell': './src/components/Grid/Cell',
     './Column': './src/components/Columns/Column',

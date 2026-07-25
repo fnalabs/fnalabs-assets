@@ -1,8 +1,7 @@
 import type { ILink } from '../../types'
-import React, { FC } from 'react'
+import type { FC } from 'react'
 import { Link } from 'react-router'
 import Icon from '../Icon/Icon'
-import { link } from 'fs/promises'
 
 export interface IMenuLink extends ILink {
   external?: boolean

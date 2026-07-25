@@ -1,5 +1,5 @@
+import type { FC, ReactNode } from 'react'
 import type { GapSize, MinimumSize, NumericSize, GridNumericSizes } from '../../types'
-import React, { FC, ReactNode } from 'react'
 
 export interface IGrid {
   /** Child Cells to render in the Grid container. */

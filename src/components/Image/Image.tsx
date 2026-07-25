@@ -1,12 +1,16 @@
+import type { FC, ReactNode } from 'react'
 import type { FixedSize, RatioSize } from '../../types'
 
-import React, { type FC, type ReactNode } from 'react'
-
 export interface IImage {
+  /** The HTML img tag for the image you want to display. */
   children: ReactNode
+  /** Optional fixed size for the image. */
   fixedSize?: FixedSize
+  /** Optional ratio size for the image. */
   ratioSize?: RatioSize
+  /** Whether the image should be centered horizontally and vertically. */
   centered?: boolean
+  /** Whether the image should be centered horizontally. */
   hcentered?: boolean
 }
 const Image: FC<IImage> = ({ children, fixedSize, ratioSize, centered, hcentered }) => {

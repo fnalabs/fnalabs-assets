@@ -1,7 +1,8 @@
 import type { ButtonStyle, Color, FixedPosition, ILink } from '../../types'
-import React, { FC, useState } from 'react'
+import { type FC, useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import Button from '../Button/Button'
+import Buttons from '../Button/Buttons'
 import Container from '../Container/Container'
 import * as Icons from '../Icon'
 
@@ -47,12 +48,10 @@ export const mapLinks = (link: INavLink) => {
       case link.divider:
         return (
           <>
-          {renderLink(link)}
-          <hr key={`${link.label}-divider`} className="navbar-divider" />
-        </>
-      )
-    case link.button:
-      return <div className="buttons">{renderLink(link)}</div>
+            {renderLink(link)}
+            <hr key={`${link.label}-divider`} className="navbar-divider" />
+          </>
+        )
     default:
       return renderLink(link)
   }
@@ -113,7 +112,11 @@ const Navbar: FC<INavbar> = ({ brandLink, startLinks, endLinks, color, fixed, sp
           </div>
 
           <div className="navbar-end">
-            {endLinks?.map(mapLinks)}
+            {endLinks?.some(link => link.button)
+              ? <div className="navbar-item">
+                  <Buttons>{endLinks?.map(mapLinks)}</Buttons>
+                </div>
+              : endLinks?.map(mapLinks)}
           </div>
         </div>
       </Container>

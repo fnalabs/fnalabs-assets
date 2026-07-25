@@ -1,4 +1,4 @@
-import React,{ type Dispatch, type FC, createContext, useReducer } from 'react'
+import { type Dispatch, type FC, createContext, useReducer } from 'react'
 import { Cookies } from 'react-cookie-consent'
 
 export const CONSENTED = 'CONSENTED'

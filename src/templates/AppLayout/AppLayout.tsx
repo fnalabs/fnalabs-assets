@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import type { FC } from 'react'
 import { Outlet } from 'react-router'
 import Navbar, { INavbar } from '../../components/Navbar/Navbar'
 

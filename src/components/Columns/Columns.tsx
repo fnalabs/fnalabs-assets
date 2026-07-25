@@ -1,5 +1,5 @@
+import type { FC, ReactNode } from 'react'
 import type { Breakpoint, GapSize, GapSizes } from '../../types'
-import React, { FC, ReactNode } from 'react'
 
 export interface IColumns {
   /** Child Columns to render in the Columns container. */

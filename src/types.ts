@@ -16,6 +16,7 @@ export type Breakpoint =
   | 'until-widescreen'
   | 'until-fullhd'
 export type BreakpointColumn = Extract<Breakpoint, 'mobile' | 'tablet' | 'desktop' | 'widescreen' | 'fullhd'>
+export type BreakpointContainer = Extract<Breakpoint, 'widescreen' | 'fullhd'> | `max-${Extract<Breakpoint, 'tablet' | 'desktop' | 'widescreen'>}`
 
 export type Color =
   | 'primary'
@@ -33,6 +34,8 @@ export type Color =
   | 'ghost'
 
 export type FixedPosition = 'top' | 'bottom'
+
+export type States = 'hovered' | 'focused' | 'active' | 'loading'
 
 export type ButtonStyle = 'outlined' | 'inverted' | 'rounded' | 'loading' | 'static'
 export type ButtonType = 'submit' | 'reset' | 'button'
