@@ -14,8 +14,8 @@ const Notification: FC<INotification> = ({ children, color, light, close, onClos
 
   return (
     <div className={`notification${colorClass}${lightClass}`}>
-      {close && <button className='delete' onClick={onClose} />}
       {children}
+      {close && <button className='delete' onClick={onClose} />}
     </div>
   )
 }

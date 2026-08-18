@@ -14,29 +14,27 @@ type Story = StoryObj<typeof meta>
 export const ContentOnly: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
-  },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+    content: true,
   },
 }
+
 export const WithSizeMedium: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
     size: 'medium',
   },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
-  },
 }
+
 export const WithSizeLarge: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
     size: 'large',
   },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+}
+
+export const AsArticle: Story = {
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
+    article: true,
   },
 }

@@ -79,3 +79,24 @@ export const WithNested: Story = {
     await expect(canvas.getByText('Link 4')).toBeVisible()
   },
 }
+export const WithExternal: Story = {
+  args: {
+    list: [
+      {
+        label: 'Label',
+        list: [
+          {
+            label: 'Link 1',
+            href: '#link1',
+            external: true,
+          },
+        ],
+      },
+    ],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText('Label')).toBeVisible()
+    await expect(canvas.getByText('Link 1')).toBeVisible()
+  },
+}

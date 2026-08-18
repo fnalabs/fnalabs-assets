@@ -8,11 +8,6 @@ import Buttons from './Buttons'
 const meta = {
   title: 'Bulma/Elements/Button',
   component: Button,
-  decorators: [Story => (
-    <ConsentProvider>
-      <Story />
-    </ConsentProvider>
-  )],
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 export default meta
@@ -35,10 +30,12 @@ export const Link: Story = {
     href: '#'
   },
   render: args => (
-    <Buttons>
-      <Button {...args} />
-      <Button {...args} label="external link" external disabled />
-    </Buttons>
+    <ConsentProvider>
+      <Buttons>
+        <Button {...args} />
+        <Button {...args} label="external link" external disabled />
+      </Buttons>
+    </ConsentProvider>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

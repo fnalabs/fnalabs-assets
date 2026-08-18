@@ -45,13 +45,13 @@ export const mapLinks = (link: INavLink) => {
           </div>
         </div>
       )
-      case link.divider:
-        return (
-          <>
-            {renderLink(link)}
-            <hr key={`${link.label}-divider`} className="navbar-divider" />
-          </>
-        )
+    case link.divider:
+      return (
+        <>
+          {renderLink(link)}
+          <hr key={`${link.label}-divider`} className="navbar-divider" />
+        </>
+      )
     default:
       return renderLink(link)
   }
