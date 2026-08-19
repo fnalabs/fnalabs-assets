@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from 'storybook-react-rsbuild'
 import { expect, within } from 'storybook/test'
+import { type MouseEvent } from 'react'
+import { MemoryRouter } from 'react-router'
 import ConsentProvider from '../../contexts/ConsentContext'
 
 import Button from './Button'
@@ -8,6 +10,13 @@ import Buttons from './Buttons'
 const meta = {
   title: 'Bulma/Elements/Button',
   component: Button,
+  decorators: [Story => (
+    <MemoryRouter>
+      <ConsentProvider>
+        <Story />
+      </ConsentProvider>
+    </MemoryRouter>
+  )],
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 export default meta
@@ -24,24 +33,38 @@ export const Basic: Story = {
 }
 
 export const Link: Story = {
-  tags: ['!test'],
   args: {
     children: 'Link',
-    href: '#'
+    href: '/',
+    onClick: event => event.preventDefault(),
   },
   render: args => (
-    <ConsentProvider>
-      <Buttons>
-        <Button {...args} />
-        <Button {...args} label="external link" external disabled />
-      </Buttons>
-    </ConsentProvider>
+    <Buttons>
+      <Button {...args}>Link 1</Button>
+      <Button {...args} href="https://example.com" label="external link" external>Link 2</Button>
+      <Button {...args} href="https://example.com" label="external link" external disabled>Link 3</Button>
+    </Buttons>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const button = canvas.getByText('Link')
-    await expect(button).toBeVisible()
-    await expect(button.closest('a')).toHaveAttribute('href', '#')
+    const button1 = canvas.getByText('Link 1')
+    await expect(button1).toBeVisible()
+    await expect(button1.closest('a')).toHaveAttribute('href', '/')
+
+    const button2 = canvas.getByText('Link 3')
+    await expect(button2).toBeVisible()
+    await expect(button2.closest('a')).toHaveAttribute('href', 'https://example.com')
+
+    button2.click()
+    // TODO: implement event handler mock
+
+    const button3 = canvas.getByText('Link 3')
+    await expect(button3).toBeVisible()
+    await expect(button3.closest('a')).toHaveAttribute('href', 'https://example.com')
+    await expect(button3.closest('a')).toHaveAttribute('aria-disabled', 'true')
+
+    button3.click()
+    // TODO: implement event handler mock
   },
 }
 

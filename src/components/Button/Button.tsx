@@ -1,5 +1,5 @@
 import type { ButtonStyle, ButtonType, Color, GenericSize, States } from '../../types'
-import { type FC, type ReactNode, useContext } from 'react'
+import { type FC, type ReactNode, type MouseEvent, useContext } from 'react'
 import { Link } from 'react-router'
 import ReactGA from 'react-ga4'
 import Icon from '../Icon/Icon'
@@ -9,7 +9,7 @@ export interface IButton {
   /** Child content to render in the Button. */
   children: ReactNode
   /** Optional click handler for the Button. */
-  onClick?: () => void
+  onClick?: (event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void
   /** Optional href for the Button to render as a link. */
   href?: string
   /** Optional label for the Button to provide additional context for screen readers. */
@@ -42,7 +42,7 @@ export interface IButton {
 
 const Button: FC<IButton> = ({
   children,
-  onClick = () => {},
+  onClick = (event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {},
   href,
   label,
   color,
@@ -59,6 +59,7 @@ const Button: FC<IButton> = ({
   fullWidth,
 }) => {
   const consent = useContext(ConsentContext)
+
   const colorClass = color ? ` is-${color}` : ''
   const colorModeClass = colorMode ? ` is-${colorMode}` : ''
   const selectedClass = selected ? ' is-selected' : ''
@@ -69,21 +70,28 @@ const Button: FC<IButton> = ({
   const combinedClasses = `button${colorClass}${colorModeClass}${selectedClass}${sizeClass}${stateClass}${styleClass}${fullWidthClass}`
 
   if (href) {
-    const handleClick = () => {
+    const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
       consent && external && ReactGA.event({
         category: 'Outbound Link',
         action: 'click',
         label: href,
       })
-      onClick()
+
+      if (disabled) event?.preventDefault()
+      else onClick(event)
     }
 
     const linkProps: any = {}
     if (external) {
       linkProps.target = '_blank'
       linkProps.rel = 'noopener noreferrer'
+
+      afterIcon = afterIcon || 'arrow-up-right-from-square'
     }
-    if (disabled) linkProps['aria-disabled'] = 'true'
+    if (disabled) {
+      linkProps['aria-disabled'] = 'true'
+      linkProps.disabled = true
+    }
     if (label) linkProps['aria-label'] = label
 
     return (
