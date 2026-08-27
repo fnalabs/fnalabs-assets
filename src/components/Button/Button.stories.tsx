@@ -28,7 +28,10 @@ export const Basic: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('Button')).toBeVisible()
+
+    const button = canvas.getByText('Button')
+    await expect(button).toBeVisible()
+    await expect(button.closest('button')).toHaveProperty('type', 'button')
   },
 }
 

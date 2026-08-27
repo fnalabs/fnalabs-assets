@@ -17,7 +17,11 @@ export const Basic: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('I\'m in a box.')).toBeVisible()
+
+    const box = canvas.getByText('I\'m in a box.')
+    await expect(box).toBeVisible()
+    await expect(box).toHaveClass('box')
+    await expect(box.tagName).toBe('DIV')
   },
 }
 

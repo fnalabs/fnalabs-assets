@@ -18,6 +18,10 @@ export const BasicFooter: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+
+    const footer = canvas.getByText(args.children as string)
+    await expect(footer).toBeVisible()
+    await expect(footer).toHaveClass('footer')
+    await expect(footer.tagName).toBe('FOOTER')
   },
 }

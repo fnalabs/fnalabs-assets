@@ -15,6 +15,13 @@ export const Basic: Story = {
   args: {
     value: 15,
   },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const progressBar = canvas.getByRole('progressbar') as HTMLProgressElement
+    await expect(progressBar).toBeVisible()
+    await expect(progressBar.value).toBe(args.value)
+  },
 }
 
 export const Colors: Story = {
@@ -41,6 +48,17 @@ export const Sizes: Story = {
       <ProgressBar value={80} size='large' />
     </>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const progressBars = canvas.getAllByRole('progressbar') as HTMLProgressElement[]
+    await expect(progressBars[0]).toHaveClass('is-small')
+    await expect(progressBars[1]).not.toHaveClass('is-small')
+    await expect(progressBars[1]).not.toHaveClass('is-medium')
+    await expect(progressBars[1]).not.toHaveClass('is-large')
+    await expect(progressBars[2]).toHaveClass('is-medium')
+    await expect(progressBars[3]).toHaveClass('is-large')
+  },
 }
 
 export const Indeterminate: Story = {
@@ -53,4 +71,13 @@ export const Indeterminate: Story = {
       <ProgressBar color='info' size='large' />
     </>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const progressBars = canvas.getAllByRole('progressbar') as HTMLProgressElement[]
+    for (const progressBar of progressBars) {
+      await expect(progressBar).not.toHaveAttribute('value')
+      await expect(progressBar).toHaveAttribute('max', '100')
+    }
+  },
 }

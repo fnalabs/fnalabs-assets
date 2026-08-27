@@ -25,7 +25,7 @@ const Grid: FC<IGrid> = ({ children, minimumSize, columnCount, colGapSize, rowGa
   const columnCountClass = Array.isArray(columnCount)
     ? columnCount.reduce((className, count) => (className += ` has-${count}`), '')
     : columnCount
-      ? ` has-${columnCount}`
+      ? ` has-${columnCount}-cols`
       : ''
   const minimumSizeClass = minimumSize ? ` is-col-min-${minimumSize}` : ''
   const colGapSizeClass = colGapSize ? ` is-column-gap-${colGapSize}` : ''

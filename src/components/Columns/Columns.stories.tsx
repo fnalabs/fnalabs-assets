@@ -23,7 +23,15 @@ export const Basic: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('example')).toBeVisible()
+
+    const box = canvas.getByText('example')
+    await expect(box).toBeVisible()
+
+    await expect(box.parentElement).toHaveClass('column')
+    await expect(box.parentElement?.tagName).toBe('DIV')
+
+    await expect(box.parentElement?.parentElement).toHaveClass('columns')
+    await expect(box.parentElement?.parentElement?.tagName).toBe('DIV')
   },
 }
 export const WithBreakpoint: Story = {
@@ -38,6 +46,7 @@ export const WithBreakpoint: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('example')).toBeVisible()
+    await expect(canvas.getByText('example').parentElement?.parentElement).toHaveClass('is-mobile')
   },
 }
 export const AllOptions: Story = {
@@ -54,7 +63,13 @@ export const AllOptions: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('example')).toBeVisible()
+
+    const columns = canvas.getByText('example').parentElement?.parentElement
+    await expect(columns).toHaveClass('columns')
+    await expect(columns).toHaveClass('is-mobile')
+    await expect(columns).toHaveClass('is-centered')
+    await expect(columns).toHaveClass('is-gapless')
+    await expect(columns).toHaveClass('is-multiline')
   },
 }
 export const FractionSizes: Story = {
@@ -126,15 +141,25 @@ export const FractionSizes: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('is-full')).toBeVisible()
+    await expect(canvas.getByText('is-full').parentElement).toHaveClass('is-full')
     await expect(canvas.getByText('is-four-fifths')).toBeVisible()
+    await expect(canvas.getByText('is-four-fifths').parentElement).toHaveClass('is-four-fifths')
     await expect(canvas.getByText('is-three-quarters')).toBeVisible()
+    await expect(canvas.getByText('is-three-quarters').parentElement).toHaveClass('is-three-quarters')
     await expect(canvas.getByText('is-two-thirds')).toBeVisible()
+    await expect(canvas.getByText('is-two-thirds').parentElement).toHaveClass('is-two-thirds')
     await expect(canvas.getByText('is-three-fifths')).toBeVisible()
+    await expect(canvas.getByText('is-three-fifths').parentElement).toHaveClass('is-three-fifths')
     await expect(canvas.getByText('is-half')).toBeVisible()
+    await expect(canvas.getByText('is-half').parentElement).toHaveClass('is-half')
     await expect(canvas.getByText('is-two-fifths')).toBeVisible()
+    await expect(canvas.getByText('is-two-fifths').parentElement).toHaveClass('is-two-fifths')
     await expect(canvas.getByText('is-one-third')).toBeVisible()
+    await expect(canvas.getByText('is-one-third').parentElement).toHaveClass('is-one-third')
     await expect(canvas.getByText('is-one-quarter')).toBeVisible()
+    await expect(canvas.getByText('is-one-quarter').parentElement).toHaveClass('is-one-quarter')
     await expect(canvas.getByText('is-one-fifth')).toBeVisible()
+    await expect(canvas.getByText('is-one-fifth').parentElement).toHaveClass('is-one-fifth')
   },
 }
 
@@ -214,17 +239,29 @@ export const TwelveColumnsSystem: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('is-12')).toBeVisible()
+    await expect(canvas.getByText('is-12').parentElement).toHaveClass('is-12')
     await expect(canvas.getByText('is-11')).toBeVisible()
+    await expect(canvas.getByText('is-11').parentElement).toHaveClass('is-11')
     await expect(canvas.getByText('is-10')).toBeVisible()
+    await expect(canvas.getByText('is-10').parentElement).toHaveClass('is-10')
     await expect(canvas.getByText('is-9')).toBeVisible()
+    await expect(canvas.getByText('is-9').parentElement).toHaveClass('is-9')
     await expect(canvas.getByText('is-8')).toBeVisible()
+    await expect(canvas.getByText('is-8').parentElement).toHaveClass('is-8')
     await expect(canvas.getByText('is-7')).toBeVisible()
+    await expect(canvas.getByText('is-7').parentElement).toHaveClass('is-7')
     await expect(canvas.getByText('is-6')).toBeVisible()
+    await expect(canvas.getByText('is-6').parentElement).toHaveClass('is-6')
     await expect(canvas.getByText('is-5')).toBeVisible()
+    await expect(canvas.getByText('is-5').parentElement).toHaveClass('is-5')
     await expect(canvas.getByText('is-4')).toBeVisible()
+    await expect(canvas.getByText('is-4').parentElement).toHaveClass('is-4')
     await expect(canvas.getByText('is-3')).toBeVisible()
+    await expect(canvas.getByText('is-3').parentElement).toHaveClass('is-3')
     await expect(canvas.getByText('is-2')).toBeVisible()
+    await expect(canvas.getByText('is-2').parentElement).toHaveClass('is-2')
     await expect(canvas.getByText('1')).toBeVisible()
+    await expect(canvas.getByText('1').parentElement).toHaveClass('is-1')
   },
 }
 export const Offset: Story = {
@@ -261,12 +298,23 @@ export const Offset: Story = {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('is-half')).toBeVisible()
     await expect(canvas.getByText('is-offset-one-quarter')).toBeVisible()
+    await expect(canvas.getByText('is-half').parentElement?.parentElement).toHaveClass('is-half')
+    await expect(canvas.getByText('is-half').parentElement?.parentElement).toHaveClass('is-offset-one-quarter')
+
     await expect(canvas.getByText('is-three-fifths')).toBeVisible()
     await expect(canvas.getByText('is-offset-one-fifth')).toBeVisible()
+    await expect(canvas.getByText('is-three-fifths').parentElement?.parentElement).toHaveClass('is-three-fifths')
+    await expect(canvas.getByText('is-three-fifths').parentElement?.parentElement).toHaveClass('is-offset-one-fifth')
+
     await expect(canvas.getByText('is-4')).toBeVisible()
     await expect(canvas.getByText('is-offset-8')).toBeVisible()
+    await expect(canvas.getByText('is-4').parentElement?.parentElement).toHaveClass('is-4')
+    await expect(canvas.getByText('is-4').parentElement?.parentElement).toHaveClass('is-offset-8')
+
     await expect(canvas.getByText('is-11')).toBeVisible()
     await expect(canvas.getByText('is-offset-1')).toBeVisible()
+    await expect(canvas.getByText('is-11').parentElement?.parentElement).toHaveClass('is-11')
+    await expect(canvas.getByText('is-11').parentElement?.parentElement).toHaveClass('is-offset-1')
   },
 }
 export const NarrowColumn: Story = {
@@ -285,9 +333,11 @@ export const NarrowColumn: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(
-      canvas.getByText('Narrow Column with more content to highlight additional vertical alignment'),
-    ).toBeVisible()
+
+    const narrowColumn = canvas.getByText('Narrow Column with more content to highlight additional vertical alignment')
+    await expect(narrowColumn).toBeVisible()
+    await expect(narrowColumn.parentElement?.parentElement).toHaveClass('is-narrow')
+
     await expect(canvas.getByText('Flexible Column')).toBeVisible()
   },
 }
@@ -325,15 +375,23 @@ export const ColumnResponsiveness: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(
-      canvas.getByText('Narrow Column with more content to highlight additional vertical alignment'),
-    ).toBeVisible()
+
+    const narrowColumn = canvas.getByText('Narrow Column with more content to highlight additional vertical alignment')
+    await expect(narrowColumn).toBeVisible()
+    await expect(narrowColumn.parentElement?.parentElement).toHaveClass('is-narrow-desktop')
+
     await expect(canvas.getByText('Flexible Column')).toBeVisible()
+
     await expect(canvas.getByText('is-three-quarters-mobile')).toBeVisible()
+    await expect(canvas.getByText('is-three-quarters-mobile').parentElement?.parentElement).toHaveClass('is-three-quarters-mobile')
     await expect(canvas.getByText('is-two-thirds-tablet')).toBeVisible()
+    await expect(canvas.getByText('is-two-thirds-tablet').parentElement?.parentElement).toHaveClass('is-two-thirds-tablet')
     await expect(canvas.getByText('is-half-desktop')).toBeVisible()
+    await expect(canvas.getByText('is-half-desktop').parentElement?.parentElement).toHaveClass('is-half-desktop')
     await expect(canvas.getByText('is-one-third-widescreen')).toBeVisible()
+    await expect(canvas.getByText('is-one-third-widescreen').parentElement?.parentElement).toHaveClass('is-one-third-widescreen')
     await expect(canvas.getByText('is-one-quarter-fullhd')).toBeVisible()
+    await expect(canvas.getByText('is-one-quarter-fullhd').parentElement?.parentElement).toHaveClass('is-one-quarter-fullhd')
   },
 }
 export const ColumnsGap: Story = {
@@ -363,5 +421,12 @@ export const ColumnsGap: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getAllByText('Column')).toHaveLength(6)
+
+    const columns = canvas.getAllByText('Column')[0].parentElement?.parentElement
+    await expect(columns).toHaveClass('is-1-mobile')
+    await expect(columns).toHaveClass('is-0-tablet')
+    await expect(columns).toHaveClass('is-3-desktop')
+    await expect(columns).toHaveClass('is-8-widescreen')
+    await expect(columns).toHaveClass('is-2-fullhd')
   },
 }

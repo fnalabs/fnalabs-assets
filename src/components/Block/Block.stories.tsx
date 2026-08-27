@@ -18,7 +18,12 @@ export const Basic: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('This text is within a block.')).toBeVisible()
+
+    const block = canvas.getByText('This text is within a block.')
+    await expect(block).toBeVisible()
+    await expect(block).toHaveClass('block')
+    await expect(block).toHaveClass('content')
+    await expect(block.tagName).toBe('DIV')
   },
 }
 
@@ -30,7 +35,10 @@ export const Article: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
 
-    const box = canvas.getByText('This text is within a block.')
-    await expect(box).toBeVisible()
+    const block = canvas.getByText('This text is within a block.')
+    await expect(block).toBeVisible()
+    await expect(block).toHaveClass('block')
+    await expect(block).not.toHaveClass('content')
+    await expect(block.tagName).toBe('ARTICLE')
   },
 }

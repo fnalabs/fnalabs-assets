@@ -17,7 +17,13 @@ export const ContentOnly: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+
+    const heroBody = canvas.getByText(args.children as string)
+    await expect(heroBody).toBeVisible()
+    await expect(heroBody).toHaveClass('hero-body')
+    await expect(heroBody.tagName).toBe('DIV')
+    await expect(heroBody.parentElement).toHaveClass('hero')
+    await expect(heroBody.parentElement?.tagName).toBe('SECTION')
   },
 }
 export const IsCenteredAndBold: Story = {
@@ -25,12 +31,15 @@ export const IsCenteredAndBold: Story = {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
     bold: true,
     centered: true,
+    color: 'primary',
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
-    await expect(canvas.getByText(args.children as string)).toHaveClass('has-text-centered')
-    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-bold')
+
+    const heroBody = canvas.getByText(args.children as string)
+    await expect(heroBody).toBeVisible()
+    await expect(heroBody).toHaveClass('has-text-centered')
+    await expect(heroBody.parentElement).toHaveClass('is-bold')
   },
 }
 export const HasColorAndSize: Story = {
@@ -41,9 +50,11 @@ export const HasColorAndSize: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
-    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-dark')
-    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-medium')
+
+    const heroBody = canvas.getByText(args.children as string)
+    await expect(heroBody).toBeVisible()
+    await expect(heroBody.parentElement).toHaveClass('is-dark')
+    await expect(heroBody.parentElement).toHaveClass('is-medium')
   },
 }
 export const WithFooter: Story = {
@@ -54,7 +65,11 @@ export const WithFooter: Story = {
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText(args.children as string)).toBeVisible()
-    await expect(canvas.getByText(args.footer as string)).toBeVisible()
+
+    const heroFooter = canvas.getByText(args.footer as string)
+    await expect(heroFooter).toBeVisible()
+    await expect(heroFooter).toHaveClass('hero-foot')
+    await expect(heroFooter.tagName).toBe('DIV')
   },
 }
 export const WithCustomClass: Story = {

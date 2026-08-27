@@ -20,6 +20,13 @@ export const Basic: Story = {
   args: {
     children: Children,
   },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const notification = canvas.getByText("felis venenatis").parentElement
+    await expect(notification).toBeVisible()
+    await expect(notification).toHaveClass('notification')
+  },
 }
 
 export const Colors: Story = {
@@ -58,5 +65,16 @@ export const WithClose: Story = {
   args: {
     children: Children,
     close: true,
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const notification = canvas.getByText("felis venenatis").parentElement
+    await expect(notification).toBeVisible()
+    await expect(notification).toHaveClass('notification')
+
+    const closeButton = canvas.getByRole('button')
+    await expect(closeButton).toBeVisible()
+    await expect(closeButton).toHaveClass('delete')
   },
 }

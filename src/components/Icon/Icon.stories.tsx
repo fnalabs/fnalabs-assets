@@ -26,7 +26,14 @@ export const IconText: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+
+    const iconText = canvas.getByText(args.children as string)
+    await expect(iconText).toBeVisible()
+    await expect(iconText.parentElement).toHaveClass('icon-text')
+    await expect(iconText.parentElement?.tagName).toBe('SPAN')
+
+    await expect(iconText.previousElementSibling).toHaveClass('icon')
+    await expect(iconText.previousElementSibling?.tagName).toBe('SPAN')
   },
 }
 

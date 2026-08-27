@@ -18,7 +18,11 @@ export const Basic: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+
+    const container = canvas.getByText(args.children as string)
+    await expect(container).toBeVisible()
+    await expect(container).toHaveClass('container')
+    await expect(container.tagName).toBe('DIV')
   },
 }
 
@@ -29,7 +33,9 @@ export const WithContent: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+    const container = canvas.getByText(args.children as string)
+    await expect(container).toBeVisible()
+    await expect(container).toHaveClass('content')
   },
 }
 
@@ -97,5 +103,6 @@ export const Fluid: Story = {
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText(args.children as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string).parentElement).toHaveClass('is-fluid')
   },
 }
