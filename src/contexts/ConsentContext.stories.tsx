@@ -37,7 +37,8 @@ export const Basic: Story = {
       <div className="content">
         <p>{args.children}{consent.toString()}</p>
         <Button onClick={() => dispatch(CONSENTED)}>Consent</Button>{' '}
-        <Button onClick={() => dispatch(DECLINED)}>Decline</Button>
+        <Button onClick={() => dispatch(DECLINED)}>Decline</Button>{' '}
+        <Button onClick={() => dispatch('no-op')}>No-op</Button>
       </div>
     )
   },
@@ -49,6 +50,9 @@ export const Basic: Story = {
     await expect(canvas.getByText('consent? true')).toBeVisible()
 
     await canvas.getByText('Decline').click()
+    await expect(canvas.getByText('consent? false')).toBeVisible()
+
+    await canvas.getByText('No-op').click()
     await expect(canvas.getByText('consent? false')).toBeVisible()
   },
 }

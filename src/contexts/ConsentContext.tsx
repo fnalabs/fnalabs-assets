@@ -19,10 +19,11 @@ export const consentReducer = (consent: boolean, action: string) => {
 }
 
 export interface IConsentProvider {
-  children: React.ReactNode
+  children: React.ReactNode,
+  initial?: boolean,
 }
-const ConsentProvider: FC<IConsentProvider> = ({ children }) => {
-  const [consent, dispatch] = useReducer(consentReducer, !!Cookies.get('CookieConsent'))
+const ConsentProvider: FC<IConsentProvider> = ({ children, initial }) => {
+  const [consent, dispatch] = useReducer(consentReducer, initial ?? !!Cookies.get('CookieConsent'))
 
   return (
     <ConsentContext value={consent}>

@@ -1,4 +1,7 @@
 import { Preview } from 'storybook-react-rsbuild'
+import { sb } from 'storybook/test'
+
+sb.mock(import('react-ga4'))
 
 const preview: Preview = {
   parameters: {
