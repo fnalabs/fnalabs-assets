@@ -8,6 +8,7 @@ import Box from '../Box/Box'
 const meta = {
   title: 'Bulma/Grid',
   component: Grid,
+  subcomponents: { Cell },
   tags: ['autodocs'],
 } satisfies Meta<typeof Grid>
 export default meta

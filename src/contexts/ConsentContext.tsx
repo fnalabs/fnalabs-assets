@@ -1,4 +1,4 @@
-import { type Dispatch, type FC, createContext, useReducer } from 'react'
+import { type Dispatch, type FC, type ReactNode, createContext, useReducer } from 'react'
 import { Cookies } from 'react-cookie-consent'
 
 export const CONSENTED = 'CONSENTED'
@@ -19,7 +19,9 @@ export const consentReducer = (consent: boolean, action: string) => {
 }
 
 export interface IConsentProvider {
-  children: React.ReactNode,
+  /** Child content to render in the ConsentProvider. */
+  children: ReactNode,
+  /** Optional initial consent state for the ConsentProvider. */
   initial?: boolean,
 }
 const ConsentProvider: FC<IConsentProvider> = ({ children, initial }) => {

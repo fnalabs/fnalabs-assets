@@ -8,6 +8,7 @@ import Box from '../Box/Box'
 const meta = {
   title: 'Bulma/Columns',
   component: Columns,
+  subcomponents: { Column },
   tags: ['autodocs'],
 } satisfies Meta<typeof Columns>
 export default meta

@@ -10,6 +10,7 @@ import Buttons from './Buttons'
 const meta = {
   title: 'Bulma/Elements/Button',
   component: Button,
+  subcomponents: { Buttons },
   decorators: [Story => (
     <MemoryRouter>
       <ConsentProvider>

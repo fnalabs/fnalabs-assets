@@ -2,32 +2,34 @@ import React, { type FC, use, useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import CookieConsent, { Cookies } from 'react-cookie-consent'
 import ReactGA from 'react-ga4'
-import { ConsentDispatchContext } from '../../contexts/ConsentContext'
+import { CONSENTED, DECLINED, ConsentDispatchContext } from '../../contexts/ConsentContext'
 
 export interface IAnalyticsToast {
   gaId: string
 }
 const AnalyticsToast: FC<IAnalyticsToast> = ({ gaId }) => {
-  const [isConsented, setIsConsented] = useState<boolean>(!!Cookies.get('CookieConsent'))
+  // NOTE: this manages the display of the toast, but the actual consent state is managed by the ConsentContext
+  const [hasConsented, setHasConsented] = useState<boolean>(!!Cookies.get('CookieConsent'))
   const dispatch = useContext(ConsentDispatchContext)
 
   const handleAccept = () => {
-    setIsConsented(true)
-    dispatch('CONSENTED')
+    setHasConsented(true)
+    dispatch(CONSENTED)
+
     // TODO: Add page view call here
   }
 
   const handleDecline = () => {
     if (Cookies.get('CookieConsent') === 'true') Cookies.set('CookieConsent', 'false')
-    setIsConsented(false)
-    dispatch('DECLINED')
+    setHasConsented(false)
+    dispatch(DECLINED)
   }
 
   useEffect(() => {
     ReactGA.initialize(gaId)
   }, [])
 
-  return !isConsented && (
+  return !hasConsented && (
     <CookieConsent
       disableStyles
       enableDeclineButton
