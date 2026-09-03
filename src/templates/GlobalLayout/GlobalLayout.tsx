@@ -52,7 +52,7 @@ const GlobalLayout: FC<IGlobalLayout> = ({ pageLinks, policyLinks, brandIcon, br
               </Columns>
             </Column>
 
-            <Column narrow textPosition='centered'>
+            <Column narrow>
               <SocialBrand brandIcon={brandIcon} brandSlogan={brandSlogan} socialLinks={socialLinks} />
             </Column>
           </Columns>

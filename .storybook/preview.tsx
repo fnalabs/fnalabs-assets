@@ -17,7 +17,29 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Getting Started', 'Templates', 'Bulma', ['Elements', 'Components', 'Columns', 'Grid', 'Layout']],
+        order: [
+          'Getting Started',
+          'Bulma',
+          [
+            'Elements',
+            'Components',
+            'Columns',
+            'Grid',
+            'Layout'
+          ],
+          'Custom',
+          [
+            'Elements',
+            'Molecules',
+            'Layouts',
+            [
+              'GlobalLayout',
+              'AppLayout',
+              'Navigation',
+            ]
+          ],
+          'Context'
+        ],
       },
     }
   },

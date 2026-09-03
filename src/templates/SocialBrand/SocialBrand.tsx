@@ -21,7 +21,7 @@ const SocialBrand: FC<ISocialBrand> = ({ brandIcon, brandSlogan, socialLinks }) 
   const BrandIcon = Icons[brandIcon]
 
   return (
-    <>
+    <div className='has-text-centered'>
       {socialLinks && <Level mobile nav items={socialLinks?.map(link => ({
         content: (
           <Button href={link.href} color='text' size='medium' label={link.label} external>
@@ -34,7 +34,7 @@ const SocialBrand: FC<ISocialBrand> = ({ brandIcon, brandSlogan, socialLinks }) 
         <Cell><BrandIcon /></Cell>
         {brandSlogan && <Cell><p>{brandSlogan}</p></Cell>}
       </Grid>
-    </>
+    </div>
   )
 }
 export default SocialBrand

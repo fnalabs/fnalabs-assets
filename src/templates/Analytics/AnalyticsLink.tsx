@@ -6,15 +6,14 @@ import Icon from '../../components/Icon/Icon'
 import { ConsentContext } from '../../contexts/ConsentContext'
 
 export interface IAnalyticsLink extends ILink {
-  external?: boolean
-  'aria-label'?: string
+  /** A function to be called when the link is clicked. */
   onClick?: (event: MouseEvent<HTMLAnchorElement>) => void
 }
 const AnalyticsLink: FC<IAnalyticsLink> = ({ label, href, external, onClick = () => {} }) => {
   const consent = useContext(ConsentContext)
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    consent && ReactGA.event({
+    consent && external && ReactGA.event({
       category: 'Outbound Link',
       action: 'click',
       label: label,

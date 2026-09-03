@@ -5,6 +5,7 @@ import ReactGA from 'react-ga4'
 import { CONSENTED, DECLINED, ConsentDispatchContext } from '../../contexts/ConsentContext'
 
 export interface IAnalyticsToast {
+  /** The Google Analytics ID for the Analytics toast to initialize with. */
   gaId: string
 }
 const AnalyticsToast: FC<IAnalyticsToast> = ({ gaId }) => {

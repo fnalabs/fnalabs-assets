@@ -85,8 +85,6 @@ const Button: FC<IButton> = ({
     if (external) {
       linkProps.target = '_blank'
       linkProps.rel = 'noopener noreferrer'
-
-      afterIcon = afterIcon || 'arrow-up-right-from-square'
     }
     if (disabled) {
       linkProps['aria-disabled'] = 'true'

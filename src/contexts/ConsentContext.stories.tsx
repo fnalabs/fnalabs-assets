@@ -13,7 +13,7 @@ import ConsentProvider, {
 const meta = {
   title: 'Context/ConsentContext',
   component: ConsentProvider,
-  tags: ['autodocs'],
+  tags: ['autodocs', '!dev'],
   decorators: [
     (Story) => (
       <ConsentProvider>
