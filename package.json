@@ -6,6 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production HOST=https://fnalabs.github.io/fnalabs-assets ROUTE=/assets rspack build",
     "build:storybook": "storybook build -o docs/storybook",
+    "build:all": "npm run build && npm run build:storybook",
     "debug": "NODE_ENV=development HOST=http://localhost:2999 ROUTE=/assets FEDERATION_DEBUG=true rspack serve",
     "dev": "NODE_ENV=development HOST=http://localhost:2999 ROUTE=/assets rspack serve",
     "lint": "eslint .",

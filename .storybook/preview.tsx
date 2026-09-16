@@ -18,7 +18,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Getting Started',
+          'Welcome',
           'Bulma',
           [
             'Elements',

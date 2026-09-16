@@ -14,7 +14,7 @@ const defaultConfig = {
   entry: { main: './src/index.tsx' },
   resolve: { extensions: ['...', '.ts', '.tsx', '.jsx'] },
   output: {
-    name: '[name].[contenthash].js',
+    filename: '[name].[contenthash].js',
     path: `./dist${ROUTE}`,
     publicPath: `${HOST}${ROUTE}/`,
     clean: true

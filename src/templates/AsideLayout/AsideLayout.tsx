@@ -29,8 +29,26 @@ const renderNavLink = (link: IMenuLink) =>
       )
 
 export interface IAsideLayout {
+  /**
+   * Nested list of links to render for the AsideLayout.<br />
+   * <code>IMenuList</code>
+   * <pre>
+   * interface IMenuList {
+   *  label?: string
+   *   list: IMenuLink[]
+   * }
+   * </pre>
+   * <code>IMenuLink</code>
+   * <pre>
+   * interface IMenuLink extends ILink {
+   *   external?: boolean
+   *   list?: IMenuLink[]
+   * }
+   * </pre>
+   */
   list: IMenuList[]
 }
+/** A Bulma Menu as an Aside navigation with additional layout. */
 const AsideLayout: FC<IAsideLayout> = ({ list }) => (
   <div className='section'>
     <Container>

@@ -10,9 +10,30 @@ import Footer from '../../components/Footer/Footer'
 import SocialBrand, { type ISocialBrand } from '../SocialBrand/SocialBrand'
 
 export interface IGlobalLayout extends ISocialBrand {
+  /**
+   * Nested list of major links to render for the GlobalLayout.<br />
+   * <code>ILink</code>
+   * <pre>
+   * interface ILink {
+   *   href: string
+   *   label: string
+   * }
+   * </pre>
+   */
   pageLinks: ILink[]
+  /**
+   * Nested list of policy links to render for the GlobalLayout.<br />
+   * <code>ILink</code>
+   * <pre>
+   * interface ILink {
+   *   href: string
+   *   label: string
+   * }
+   * </pre>
+   */
   policyLinks: ILink[]
 }
+/** A foundational layout for the first layer of layout with a footer. */
 const GlobalLayout: FC<IGlobalLayout> = ({ pageLinks, policyLinks, brandIcon, brandSlogan, socialLinks }) => {
   return (
     <>

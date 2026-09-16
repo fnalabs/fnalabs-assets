@@ -4,7 +4,9 @@ import { useLocation } from 'react-router'
 export const locationReload = () => location.reload()
 
 export interface IServiceWorker {
+  /** The URL of the service worker script. */
   src: string
+  /** The scope of the service worker. */
   scope: string
 }
 const ServiceWorker: FC<IServiceWorker> = ({ src, scope }) => {
