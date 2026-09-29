@@ -1,0 +1,89 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Welcome" />
+
+# Welcome!
+
+This is a core platform project in the [Federated PWA](https://fnalabs.com/federation) pattern used to rebuild our existing PWA, [FnA Labs](https://fnalabs.com). The pattern extends a blend of React Components to build a base library of Bulma CSS framework experiences and custom Templates and Layouts leveraging those atomic building blocks. It is our interpretation based on Bulma's documentation but we think we captured much of the functionality.
+
+The use cases for this project are:
+
+- Leverage [Module Federation](https://module-federation.io/) to share common UI experience components.
+- Use [Bulma](https://bulma.io/) CSS framework to provide a consistent look and feel across all apps.
+- Built specifically for all UI projects under the FnA Labs umbrella.
+
+## TODOs
+
+The list below are remaining efforts to finalize the project and make it fully production ready for our robust Federated PWA example. We have enough built to demonstrate the pattern but want to provide a more holistic example with the remaining TODOs below.
+
+- <input type="checkbox" disabled /> Bulma CSS framework
+  - <input type="checkbox" disabled checked /> core components used in original FnA Labs PWA
+  - <input type="checkbox" disabled /> remaining components we are committed to building
+    - Elements
+      - Tag
+    - Components
+      - Breadcrumb
+      - Dropdown
+      - Message
+      - Modal
+      - Tabs
+    - Form (all)
+- <input type="checkbox" disabled checked /> Storybook
+- <input type="checkbox" disabled checked /> Playwright Testing (Unit/Integration)
+- <input type="checkbox" disabled checked /> Accessibility Testing
+- <input type="checkbox" disabled /> Pipeline integration
+- <input type="checkbox" disabled /> Visual Regression Testing
+
+## INFOs
+
+This section provides details on how to use this project from the perspective of the heading topics below.
+
+### Consume in federated UI apps
+
+This project is built on the latest version of Module Federation and is designed to be consumed by other federated UI apps. To consume this project, please follow the steps below:
+
+```ts
+import { registerRemotes } from '@module-federation/enhanced/runtime'
+
+// NOTE: depending on your Module Federation setup, there may be additional commands
+registerRemotes([
+  {
+    name: 'fnalabs_assets',
+    entry: 'https://fnalabs.github.io/fnalabs-assets/assets/mf-manifest.json',
+  },
+  // NOTE: include other remotes as needed
+])
+```
+
+### Contribute
+
+To contribute to this project, please follow the steps below:
+
+1. Ensure you have the following dependencies installed on your local machine:
+
+   - latest [Node.js LTS](https://nodejs.org/en/download) (v24 or higher)
+   - NPM (whatever comes with Node.js LTS above)
+   - internet connection to access global styles
+
+2. Install project dependencies with `npm ci`.
+3. Run the project with the following commands:
+
+   - `npm run build` - builds the project for production.
+   - `npm run build:storybook` - builds Storybook for production.
+
+     ***NOTE:*** When contributing, please be sure to build the project before submitting a pull request until our pipelines are configured.
+
+   - `npm run build:all` - runs both build commands above in the order listed.
+   - `npm run storybook` - runs Storybook for local development and testing.
+
+     ***NOTE:*** Storybook tests can be janky at times, re-run if you get unexpected failures.
+
+   - `npm run test` - runs all unit and integration tests with Playwright.
+
+
+## References
+
+- [Federated PWAs](https://fnalabs.com/federation)
+- [Module Federation](https://module-federation.io/)
+- [Bulma CSS framework](https://bulma.io/)
+- [Node.js LTS](https://nodejs.org/en/download)

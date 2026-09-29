@@ -1,32 +1,35 @@
 import type { ILink } from '../../types'
-import React, { type FC, useContext } from 'react'
+import { type FC, type MouseEvent, useContext } from 'react'
 import { Link } from 'react-router'
 import ReactGA from 'react-ga4'
+import Icon from '../../components/Icon/Icon'
 import { ConsentContext } from '../../contexts/ConsentContext'
 
 export interface IAnalyticsLink extends ILink {
-  external?: boolean
-  'aria-label'?: string
-  onClick?: () => void
+  /** A function to be called when the link is clicked. */
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void
 }
-const AnalyticsLink: FC<IAnalyticsLink> = ({ label, href, external, onClick = () => {}, ...rest }) => {
+const AnalyticsLink: FC<IAnalyticsLink> = ({ label, href, external, onClick = () => {} }) => {
   const consent = useContext(ConsentContext)
 
-  const handleClick = () => {
-    consent && ReactGA.event({
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    consent && external && ReactGA.event({
       category: 'Outbound Link',
       action: 'click',
       label: label,
     })
-    onClick()
+    onClick(event)
   }
 
-  const linkProps: any = {}
   if (external) {
-    linkProps.target = '_blank'
-    linkProps.rel = 'noopener noreferrer'
+    return (
+      <Link to={href} onClick={handleClick} target='_blank' rel='noopener noreferrer'>
+        <span>{label}</span>
+        <Icon style='solid' name='arrow-up-right-from-square' size='small' />
+      </Link>
+    )
   }
 
-  return <Link to={href} onClick={handleClick} {...linkProps}>{label}</Link>
+  return <Link to={href} onClick={handleClick}>{label}</Link>
 }
 export default AnalyticsLink

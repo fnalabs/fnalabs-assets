@@ -8,6 +8,7 @@ import Box from '../Box/Box'
 const meta = {
   title: 'Bulma/Grid',
   component: Grid,
+  subcomponents: { Cell },
   tags: ['autodocs'],
 } satisfies Meta<typeof Grid>
 export default meta
@@ -92,7 +93,14 @@ export const SmartGrid: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('Cell 1')).toBeVisible()
+
+    const cell = canvas.getByText('Cell 1')
+    await expect(cell).toBeVisible()
+    await expect(cell.parentElement).toHaveClass('cell')
+    await expect(cell.parentElement?.tagName).toBe('DIV')
+    await expect(cell.parentElement?.parentElement).toHaveClass('grid')
+    await expect(cell.parentElement?.parentElement?.tagName).toBe('DIV')
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
@@ -161,7 +169,16 @@ export const FixedGrid: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('Cell 1')).toBeVisible()
+
+    const cell = canvas.getByText('Cell 1')
+    await expect(cell).toBeVisible()
+    await expect(cell.parentElement).toHaveClass('cell')
+    await expect(cell.parentElement?.tagName).toBe('DIV')
+    await expect(cell.parentElement?.parentElement).toHaveClass('grid')
+    await expect(cell.parentElement?.parentElement?.tagName).toBe('DIV')
+    await expect(cell.parentElement?.parentElement?.parentElement).toHaveClass('fixed-grid')
+    await expect(cell.parentElement?.parentElement?.parentElement?.tagName).toBe('DIV')
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
@@ -231,7 +248,17 @@ export const AutoCountFixedGrid: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('Cell 1')).toBeVisible()
+
+    const cell = canvas.getByText('Cell 1')
+    await expect(cell).toBeVisible()
+    await expect(cell.parentElement).toHaveClass('cell')
+    await expect(cell.parentElement?.tagName).toBe('DIV')
+    await expect(cell.parentElement?.parentElement).toHaveClass('grid')
+    await expect(cell.parentElement?.parentElement?.tagName).toBe('DIV')
+    await expect(cell.parentElement?.parentElement?.parentElement).toHaveClass('fixed-grid')
+    await expect(cell.parentElement?.parentElement?.parentElement).toHaveClass('has-auto-count')
+    await expect(cell.parentElement?.parentElement?.parentElement?.tagName).toBe('DIV')
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
@@ -275,8 +302,20 @@ export const ColumnStart: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('Cell 1')).toBeVisible()
+
+    const cell = canvas.getByText('Cell 1')
+    await expect(cell).toBeVisible()
+    await expect(cell.parentElement).toHaveClass('cell')
+    await expect(cell.parentElement?.tagName).toBe('DIV')
+    await expect(cell.parentElement?.parentElement).toHaveClass('grid')
+    await expect(cell.parentElement?.parentElement?.tagName).toBe('DIV')
+    await expect(cell.parentElement?.parentElement?.parentElement).toHaveClass('fixed-grid')
+    await expect(cell.parentElement?.parentElement?.parentElement).toHaveClass('has-4-cols')
+    await expect(cell.parentElement?.parentElement?.parentElement?.tagName).toBe('DIV')
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
+    await expect(canvas.getByText('Cell 2').parentElement).toHaveClass('is-col-start-3')
+
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
     await expect(canvas.getByText('Cell 5')).toBeVisible()
@@ -311,7 +350,10 @@ export const ColumnFromEnd: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('Cell 1')).toBeVisible()
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
+    await expect(canvas.getByText('Cell 2').parentElement).toHaveClass('is-col-from-end-2')
+
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
     await expect(canvas.getByText('Cell 5')).toBeVisible()
@@ -346,7 +388,10 @@ export const ColumnSpan: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('Cell 1')).toBeVisible()
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
+    await expect(canvas.getByText('Cell 2').parentElement).toHaveClass('is-col-span-2')
+
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
     await expect(canvas.getByText('Cell 5')).toBeVisible()
@@ -381,7 +426,10 @@ export const RowStart: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('Cell 1')).toBeVisible()
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
+    await expect(canvas.getByText('Cell 2').parentElement).toHaveClass('is-row-start-3')
+
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
     await expect(canvas.getByText('Cell 5')).toBeVisible()
@@ -416,7 +464,10 @@ export const RowFromEnd: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('Cell 1')).toBeVisible()
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
+    await expect(canvas.getByText('Cell 2').parentElement).toHaveClass('is-row-from-end-1')
+
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
     await expect(canvas.getByText('Cell 5')).toBeVisible()
@@ -430,7 +481,7 @@ export const RowSpan: Story = {
         <Box>Cell 1</Box>
       </Cell>,
       <Cell cellPosition="row-span-2">
-        <Box>Cell 2</Box>
+        <div className="py-3 px-4 has-background-primary has-text-primary-invert has-radius-normal is-row-span-2" style={{ height: '100%' }}>Cell 2</div>
       </Cell>,
       <Cell>
         <Box>Cell 3</Box>
@@ -451,7 +502,10 @@ export const RowSpan: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('Cell 1')).toBeVisible()
+
     await expect(canvas.getByText('Cell 2')).toBeVisible()
+    await expect(canvas.getByText('Cell 2').parentElement).toHaveClass('is-row-span-2')
+
     await expect(canvas.getByText('Cell 3')).toBeVisible()
     await expect(canvas.getByText('Cell 4')).toBeVisible()
     await expect(canvas.getByText('Cell 5')).toBeVisible()

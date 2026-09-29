@@ -1,8 +1,7 @@
 import type { ILink } from '../../types'
-import React, { FC } from 'react'
+import type { FC } from 'react'
 import { Link } from 'react-router'
 import Icon from '../Icon/Icon'
-import { link } from 'fs/promises'
 
 export interface IMenuLink extends ILink {
   external?: boolean
@@ -13,7 +12,23 @@ export interface IMenuList {
   list: IMenuLink[]
 }
 export interface IMenu {
-  /** Nested list of links to render for the Menu. */
+  /**
+   * Nested list of links to render for the Menu.<br />
+   * <code>IMenuList</code>
+   * <pre>
+   * interface IMenuList {
+   *  label?: string
+   *   list: IMenuLink[]
+   * }
+   * </pre>
+   * <code>IMenuLink</code>
+   * <pre>
+   * interface IMenuLink extends ILink {
+   *   external?: boolean
+   *   list?: IMenuLink[]
+   * }
+   * </pre>
+   */
   list: IMenuList[]
 }
 

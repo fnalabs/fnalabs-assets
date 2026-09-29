@@ -1,6 +1,7 @@
 import type { StorybookConfig } from 'storybook-react-rsbuild'
 
 const config: StorybookConfig = {
+  framework: 'storybook-react-rsbuild',
   stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
   addons: [
     '@storybook/addon-a11y',
@@ -8,18 +9,10 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
     '@storybook/addon-onboarding',
   ],
-  framework: {
-    name: 'storybook-react-rsbuild',
-    options: {},
-  },
+  managerHead: (head) => `${head}<meta name="robots" content="noindex" />`,
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      // faster build
-      compilerOptions: {
-        allowSyntheticDefaultImports: false,
-        esModuleInterop: false,
-      },
       // auto-generate select/radio controls from union type
       shouldExtractLiteralValuesFromEnum: true,
       // hide undefined type on optional props in storybook
@@ -27,15 +20,7 @@ const config: StorybookConfig = {
     },
   },
   webpackAddons: [
-    {
-      name: '@storybook/addon-coverage',
-      options: {
-        istanbul: {
-          exclude: [],
-          include: ['src/**/*.stories.@(ts|tsx)'],
-        },
-      },
-    },
+    '@storybook/addon-coverage',
   ],
 }
 export default config

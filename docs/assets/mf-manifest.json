@@ -10,7 +10,7 @@
     },
     "publicPath": "https://fnalabs.github.io/fnalabs-assets/assets/",
     "remoteEntry": {
-      "name": "fnalabs_assets.js",
+      "name": "fnalabs_assets.feb7d3c4251ef6c9.js",
       "path": "",
       "type": "global"
     },
@@ -20,7 +20,7 @@
       "zip": "@mf-types.zip",
       "api": "@mf-types.d.ts"
     },
-    "pluginVersion": "2.6.0"
+    "pluginVersion": "2.8.0"
   },
   "shared": [
     {
@@ -32,7 +32,7 @@
       "assets": {
         "js": {
           "sync": [
-            "487.js"
+            "1487.da0e8f68d58caa8d.js"
           ],
           "async": []
         },
@@ -45,13 +45,13 @@
     {
       "id": "fnalabs_assets:react-router",
       "name": "react-router",
-      "version": "8.0.1",
+      "version": "8.2.0",
       "singleton": true,
-      "requiredVersion": "8.0.1",
+      "requiredVersion": "8.2.0",
       "assets": {
         "js": {
           "sync": [
-            "947.js"
+            "3947.4ec0f18c2c967494.js"
           ],
           "async": []
         },
@@ -62,16 +62,15 @@
       }
     },
     {
-      "id": "fnalabs_assets:react-dom",
-      "name": "react-dom",
-      "version": "19.2.7",
+      "id": "fnalabs_assets:react",
+      "name": "react",
+      "version": "19.2.8",
       "singleton": true,
-      "requiredVersion": "19.2.7",
+      "requiredVersion": "19.2.8",
       "assets": {
         "js": {
           "sync": [
-            "717.js",
-            "98.js"
+            "6237.7510e23deab31155.js"
           ],
           "async": []
         },
@@ -90,8 +89,8 @@
       "assets": {
         "js": {
           "sync": [
-            "421.js",
-            "802.js"
+            "2421.43ca0cac698187f2.js",
+            "4802.1e960ece5837775b.js"
           ],
           "async": []
         },
@@ -102,15 +101,16 @@
       }
     },
     {
-      "id": "fnalabs_assets:react",
-      "name": "react",
-      "version": "19.2.7",
+      "id": "fnalabs_assets:react-dom",
+      "name": "react-dom",
+      "version": "19.2.8",
       "singleton": true,
-      "requiredVersion": "19.2.7",
+      "requiredVersion": "19.2.8",
       "assets": {
         "js": {
           "sync": [
-            "237.js"
+            "2717.6b3c02d6d80b9396.js",
+            "5098.ebfddf3d056a2a3c.js"
           ],
           "async": []
         },
@@ -124,21 +124,48 @@
   "remotes": [],
   "exposes": [
     {
-      "id": "fnalabs_assets:Loading",
-      "name": "Loading",
+      "id": "fnalabs_assets:Menu",
+      "name": "Menu",
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Loading.js"
+            "__federation_expose_Menu.5318c1c44af57f23.js"
           ],
-          "async": []
+          "async": [
+            "2038.b7062dc84fafcf1e.js",
+            "4640.1ac3e38a059880a6.js",
+            "__federation_expose_AnalyticsLink.bf52f68799fef61f.js",
+            "__federation_expose_AnalyticsToast.4cf21fb3f79c24df.js",
+            "__federation_expose_AppLayout.857ecd52f3561949.js",
+            "__federation_expose_AsideLayout.11ce21634698e909.js",
+            "__federation_expose_Button.3c73a1872c5c82c5.js",
+            "__federation_expose_Cell.04bce9a25ba09eea.js",
+            "__federation_expose_ConsentContext.65c1671abaf0313f.js",
+            "__federation_expose_DirectionLayout.04c0358dbf7dd99e.js",
+            "__federation_expose_Footer.c60b47d2f93eabfa.js",
+            "__federation_expose_GlobalLayout.197e00c97da51ef6.js",
+            "__federation_expose_Level.4c6fbe621325c7fd.js",
+            "__federation_expose_Loading.8874d23b0db969b7.js",
+            "__federation_expose_Media.abfe9e4cfb25a610.js",
+            "__federation_expose_Navbar.ecd6b6e28a0a1aef.js",
+            "__federation_expose_Notification.db7677dd033eebfa.js",
+            "__federation_expose_ProgressBar.f1ed2f2269f371b5.js",
+            "__federation_expose_Section.c4c08753a425a3fc.js",
+            "__federation_expose_ServiceWorker.00338b0be8b5592b.js",
+            "__federation_expose_SocialBrand.f33a841f9ba2cad7.js",
+            "__federation_expose_brands__FnALabs.d932a99d4529a0f5.js",
+            "__federation_expose_brands__FnALabsInverted.acbdc86df4759937.js",
+            "__federation_expose_brands__HiveIO.2e5faf8594268673.js",
+            "__federation_expose_brands__ModuleFederation.e7d7b9326d41c15e.js",
+            "__federation_expose_brands__OpenTelemetry.4a925abdc05e3fde.js"
+          ]
         },
         "css": {
           "sync": [],
           "async": []
         }
       },
-      "path": "./Loading"
+      "path": "./Menu"
     },
     {
       "id": "fnalabs_assets:Cell",
@@ -146,7 +173,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Cell.js"
+            "__federation_expose_Cell.04bce9a25ba09eea.js"
           ],
           "async": []
         },
@@ -158,12 +185,12 @@
       "path": "./Cell"
     },
     {
-      "id": "fnalabs_assets:brands/FnALabsInverted",
-      "name": "brands/FnALabsInverted",
+      "id": "fnalabs_assets:Loading",
+      "name": "Loading",
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_brands__FnALabsInverted.js"
+            "__federation_expose_Loading.8874d23b0db969b7.js"
           ],
           "async": []
         },
@@ -172,7 +199,7 @@
           "async": []
         }
       },
-      "path": "./brands/FnALabsInverted"
+      "path": "./Loading"
     },
     {
       "id": "fnalabs_assets:SocialBrand",
@@ -180,8 +207,8 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_SocialBrand.js",
-            "__federation_expose_brands__ModuleFederation.js"
+            "__federation_expose_SocialBrand.f33a841f9ba2cad7.js",
+            "__federation_expose_brands__ModuleFederation.e7d7b9326d41c15e.js"
           ],
           "async": []
         },
@@ -198,7 +225,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Grid.js"
+            "__federation_expose_Grid.899322c9324a4fe3.js"
           ],
           "async": []
         },
@@ -215,7 +242,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Block.js"
+            "__federation_expose_Block.d1058251b326306b.js"
           ],
           "async": []
         },
@@ -232,7 +259,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_brands__HiveIO.js"
+            "__federation_expose_brands__HiveIO.2e5faf8594268673.js"
           ],
           "async": []
         },
@@ -249,7 +276,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Icon.js"
+            "__federation_expose_Icon.66a50ad50873b787.js"
           ],
           "async": []
         },
@@ -266,7 +293,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Container.js"
+            "__federation_expose_Container.fcc36072e614600d.js"
           ],
           "async": []
         },
@@ -283,7 +310,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Card.js"
+            "__federation_expose_Card.b368d05bd77ec25c.js"
           ],
           "async": []
         },
@@ -300,7 +327,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Column.js"
+            "__federation_expose_Column.5b618c047fed7452.js"
           ],
           "async": []
         },
@@ -317,7 +344,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Level.js"
+            "__federation_expose_Level.4c6fbe621325c7fd.js"
           ],
           "async": []
         },
@@ -334,8 +361,8 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_GlobalLayout.js",
-            "__federation_expose_brands__ModuleFederation.js"
+            "__federation_expose_GlobalLayout.197e00c97da51ef6.js",
+            "__federation_expose_brands__ModuleFederation.e7d7b9326d41c15e.js"
           ],
           "async": []
         },
@@ -352,7 +379,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Box.js"
+            "__federation_expose_Box.b9138c1fd59fff6e.js"
           ],
           "async": []
         },
@@ -369,7 +396,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_AnalyticsLink.js"
+            "__federation_expose_AnalyticsLink.bf52f68799fef61f.js"
           ],
           "async": []
         },
@@ -386,7 +413,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Media.js"
+            "__federation_expose_Media.abfe9e4cfb25a610.js"
           ],
           "async": []
         },
@@ -403,8 +430,8 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_AppLayout.js",
-            "__federation_expose_brands__ModuleFederation.js"
+            "__federation_expose_AppLayout.857ecd52f3561949.js",
+            "__federation_expose_brands__ModuleFederation.e7d7b9326d41c15e.js"
           ],
           "async": []
         },
@@ -421,7 +448,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Notification.js"
+            "__federation_expose_Notification.db7677dd033eebfa.js"
           ],
           "async": []
         },
@@ -433,16 +460,33 @@
       "path": "./Notification"
     },
     {
+      "id": "fnalabs_assets:Buttons",
+      "name": "Buttons",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_Buttons.2c9a5eff0adeee59.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "./Buttons"
+    },
+    {
       "id": "fnalabs_assets:brands/ModuleFederation",
       "name": "brands/ModuleFederation",
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_AppLayout.js",
-            "__federation_expose_GlobalLayout.js",
-            "__federation_expose_Navbar.js",
-            "__federation_expose_SocialBrand.js",
-            "__federation_expose_brands__ModuleFederation.js"
+            "__federation_expose_AppLayout.857ecd52f3561949.js",
+            "__federation_expose_GlobalLayout.197e00c97da51ef6.js",
+            "__federation_expose_Navbar.ecd6b6e28a0a1aef.js",
+            "__federation_expose_SocialBrand.f33a841f9ba2cad7.js",
+            "__federation_expose_brands__ModuleFederation.e7d7b9326d41c15e.js"
           ],
           "async": []
         },
@@ -459,7 +503,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Columns.js"
+            "__federation_expose_Columns.6c36c1cea7f64d03.js"
           ],
           "async": []
         },
@@ -476,7 +520,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_DirectionLayout.js"
+            "__federation_expose_DirectionLayout.04c0358dbf7dd99e.js"
           ],
           "async": []
         },
@@ -493,7 +537,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_AnalyticsToast.js"
+            "__federation_expose_AnalyticsToast.4cf21fb3f79c24df.js"
           ],
           "async": []
         },
@@ -510,7 +554,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Section.js"
+            "__federation_expose_Section.c4c08753a425a3fc.js"
           ],
           "async": []
         },
@@ -527,7 +571,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Footer.js"
+            "__federation_expose_Footer.c60b47d2f93eabfa.js"
           ],
           "async": []
         },
@@ -544,7 +588,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Image.js"
+            "__federation_expose_Image.e3fc0c97277634ea.js"
           ],
           "async": []
         },
@@ -561,8 +605,8 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Navbar.js",
-            "__federation_expose_brands__ModuleFederation.js"
+            "__federation_expose_Navbar.ecd6b6e28a0a1aef.js",
+            "__federation_expose_brands__ModuleFederation.e7d7b9326d41c15e.js"
           ],
           "async": []
         },
@@ -579,7 +623,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_brands__OpenTelemetry.js"
+            "__federation_expose_brands__OpenTelemetry.4a925abdc05e3fde.js"
           ],
           "async": []
         },
@@ -596,7 +640,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_ProgressBar.js"
+            "__federation_expose_ProgressBar.f1ed2f2269f371b5.js"
           ],
           "async": []
         },
@@ -613,7 +657,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_ServiceWorker.js"
+            "__federation_expose_ServiceWorker.00338b0be8b5592b.js"
           ],
           "async": []
         },
@@ -630,7 +674,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_brands__FnALabs.js"
+            "__federation_expose_brands__FnALabs.d932a99d4529a0f5.js"
           ],
           "async": []
         },
@@ -647,7 +691,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Hero.js"
+            "__federation_expose_Hero.32de1f0ffd3717dc.js"
           ],
           "async": []
         },
@@ -664,7 +708,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_AsideLayout.js"
+            "__federation_expose_AsideLayout.11ce21634698e909.js"
           ],
           "async": []
         },
@@ -681,7 +725,7 @@
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_ConsentContext.js"
+            "__federation_expose_ConsentContext.65c1671abaf0313f.js"
           ],
           "async": []
         },
@@ -693,12 +737,29 @@
       "path": "./ConsentContext"
     },
     {
+      "id": "fnalabs_assets:brands/FnALabsInverted",
+      "name": "brands/FnALabsInverted",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_brands__FnALabsInverted.acbdc86df4759937.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "./brands/FnALabsInverted"
+    },
+    {
       "id": "fnalabs_assets:Button",
       "name": "Button",
       "assets": {
         "js": {
           "sync": [
-            "__federation_expose_Button.js"
+            "__federation_expose_Button.3c73a1872c5c82c5.js"
           ],
           "async": []
         },
@@ -708,23 +769,6 @@
         }
       },
       "path": "./Button"
-    },
-    {
-      "id": "fnalabs_assets:Menu",
-      "name": "Menu",
-      "assets": {
-        "js": {
-          "sync": [
-            "__federation_expose_Menu.js"
-          ],
-          "async": []
-        },
-        "css": {
-          "sync": [],
-          "async": []
-        }
-      },
-      "path": "./Menu"
     }
   ]
 }

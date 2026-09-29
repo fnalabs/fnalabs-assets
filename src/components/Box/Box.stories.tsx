@@ -13,10 +13,28 @@ export default meta
 type Story = StoryObj<typeof meta>
 export const Basic: Story = {
   args: {
-    children: <Box>example</Box>,
+    children: 'I\'m in a box.',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText('example')).toBeVisible()
+
+    const box = canvas.getByText('I\'m in a box.')
+    await expect(box).toBeVisible()
+    await expect(box).toHaveClass('box')
+    await expect(box.tagName).toBe('DIV')
+  },
+}
+
+export const FullHeight: Story = {
+  args: {
+    fullheight: true,
+    children: 'I\'m in a box.',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const box = canvas.getByText('I\'m in a box.')
+    await expect(box).toBeVisible()
+    await expect(box).toHaveClass('is-fullheight')
   },
 }

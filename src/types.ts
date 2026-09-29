@@ -16,6 +16,7 @@ export type Breakpoint =
   | 'until-widescreen'
   | 'until-fullhd'
 export type BreakpointColumn = Extract<Breakpoint, 'mobile' | 'tablet' | 'desktop' | 'widescreen' | 'fullhd'>
+export type BreakpointContainer = Extract<Breakpoint, 'widescreen' | 'fullhd'> | `max-${Extract<Breakpoint, 'tablet' | 'desktop' | 'widescreen'>}`
 
 export type Color =
   | 'primary'
@@ -33,6 +34,8 @@ export type Color =
   | 'ghost'
 
 export type FixedPosition = 'top' | 'bottom'
+
+export type States = 'hovered' | 'focused' | 'active' | 'loading'
 
 export type ButtonStyle = 'outlined' | 'inverted' | 'rounded' | 'loading' | 'static'
 export type ButtonType = 'submit' | 'reset' | 'button'
@@ -88,7 +91,12 @@ export type TextPosition = 'left' | 'right' | 'centered' | 'justified'
 export type TextPositions = `${TextPosition}-${Breakpoint}`
 
 export interface ILink {
+  /** The text to display for the link. */
   label: string
+  /** The URL to navigate to when the link is clicked. */
   href: string
+  /** Whether the link is external (opens in a new tab) or internal (navigates within the app). */
   external?: boolean
+  /** The accessible label for the link. */
+  'aria-label'?: string
 }

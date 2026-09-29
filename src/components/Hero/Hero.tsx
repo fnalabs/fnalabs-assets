@@ -1,5 +1,5 @@
 import type { Color, GenericSize } from '../../types'
-import React, { FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 
 export interface IHero {
   /** Child content to render in the Hero. */
@@ -16,16 +16,19 @@ export interface IHero {
   footer?: ReactNode
   /** Optional size setting for the Hero. */
   size?: GenericSize
+  /** Optional flag to accomodate for Navbar spacing. */
+  withNavbar?: boolean
 }
-const Hero: FC<IHero> = ({ children, bold, centered, className, color, footer, size }) => {
+const Hero: FC<IHero> = ({ children, bold, centered, className, color, footer, size, withNavbar }) => {
   const boldClass = bold ? ' is-bold' : ''
   const centeredClass = centered ? ' has-text-centered' : ''
   const colorClass = color ? ` is-${color}` : ''
   const sizeClass = size ? ` is-${size}` : ''
   const customClasses = className ? ` ${className}` : ''
+  const withNavbarClass = withNavbar ? ' is-fullheight-with-navbar' : ''
 
   return (
-    <section className={`hero${boldClass}${colorClass}${sizeClass}${customClasses}`}>
+    <section className={`hero${boldClass}${colorClass}${sizeClass}${customClasses}${withNavbarClass}`}>
       <div className={`hero-body${centeredClass}`}>{children}</div>
       {footer && <div className={`hero-foot${centeredClass}`}>{footer}</div>}
     </section>

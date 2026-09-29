@@ -1,5 +1,5 @@
+import type { FC, ReactNode } from 'react'
 import type { GapSize, MinimumSize, NumericSize, GridNumericSizes } from '../../types'
-import React, { FC, ReactNode } from 'react'
 
 export interface IGrid {
   /** Child Cells to render in the Grid container. */
@@ -25,7 +25,7 @@ const Grid: FC<IGrid> = ({ children, minimumSize, columnCount, colGapSize, rowGa
   const columnCountClass = Array.isArray(columnCount)
     ? columnCount.reduce((className, count) => (className += ` has-${count}`), '')
     : columnCount
-      ? ` has-${columnCount}`
+      ? ` has-${columnCount}-cols`
       : ''
   const minimumSizeClass = minimumSize ? ` is-col-min-${minimumSize}` : ''
   const colGapSizeClass = colGapSize ? ` is-column-gap-${colGapSize}` : ''

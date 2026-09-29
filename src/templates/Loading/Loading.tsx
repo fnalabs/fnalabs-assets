@@ -6,7 +6,9 @@ import Hero, { type IHero } from '../../components/Hero/Hero'
 import ProgressBar, { type IProgressBar } from '../../components/ProgressBar/ProgressBar'
 
 export interface ILoading {
+  /** Optional color for the loading experience. */
   color?: IProgressBar['color']
+  /** Optional size for the loading experience. */
   size?: IHero['size']
 }
 const Loading: FC<ILoading> = ({ color = 'primary', size = 'fullheight' }) => (

@@ -14,12 +14,19 @@ type Story = StoryObj<typeof meta>
 export const ContentOnly: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
+    content: true,
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+
+    const section = canvas.getByText(args.children as string)
+    await expect(section).toBeVisible()
+    await expect(section).toHaveClass('section')
+    await expect(section).toHaveClass('content')
+    await expect(section.tagName).toBe('SECTION')
   },
 }
+
 export const WithSizeMedium: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
@@ -27,9 +34,10 @@ export const WithSizeMedium: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string)).toHaveClass('is-medium')
   },
 }
+
 export const WithSizeLarge: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
@@ -37,6 +45,21 @@ export const WithSizeLarge: Story = {
   },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByText(args.children as string)).toBeVisible()
+    await expect(canvas.getByText(args.children as string)).toHaveClass('is-large')
+  },
+}
+
+export const AsArticle: Story = {
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
+    article: true,
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const section = canvas.getByText(args.children as string)
+    await expect(section).toBeVisible()
+    await expect(section).toHaveClass('section')
+    await expect(section.tagName).toBe('ARTICLE')
   },
 }

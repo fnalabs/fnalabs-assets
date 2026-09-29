@@ -1,4 +1,8 @@
 import { Preview } from 'storybook-react-rsbuild'
+import { sb } from 'storybook/test'
+import { themes } from 'storybook/theming'
+
+sb.mock(import('react-ga4'))
 
 const preview: Preview = {
   parameters: {
@@ -8,9 +12,34 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      theme: themes.dark,
+    },
     options: {
       storySort: {
-        order: ['Getting Started', 'Templates', 'Bulma', ['Elements', 'Components', 'Columns', 'Grid', 'Layout']],
+        order: [
+          'Welcome',
+          'Bulma',
+          [
+            'Elements',
+            'Components',
+            'Columns',
+            'Grid',
+            'Layout'
+          ],
+          'Custom',
+          [
+            'Elements',
+            'Molecules',
+            'Layouts',
+            [
+              'GlobalLayout',
+              'AppLayout',
+              'Navigation',
+            ]
+          ],
+          'Context'
+        ],
       },
     }
   },
