@@ -51,7 +51,7 @@ const SocialBrand: FC<ISocialBrand> = ({ brandIcon, brandSlogan, socialLinks }) 
         )
       }))} />}
 
-      <Grid>
+      <Grid fixed columnCount={1}>
         <Cell><BrandIcon /></Cell>
         {brandSlogan && <Cell><p>{brandSlogan}</p></Cell>}
       </Grid>
