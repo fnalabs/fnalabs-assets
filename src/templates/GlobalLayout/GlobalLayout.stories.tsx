@@ -14,6 +14,7 @@ type Story = StoryObj<typeof meta>
 export const Basic: Story = {
   args: {
     brandIcon: 'FnALabsInverted',
+    brandSlogan: 'Fn Awesome!',
     pageLinks: [
       {
         label: 'Home',

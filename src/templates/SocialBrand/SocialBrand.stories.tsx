@@ -27,6 +27,7 @@ export const Basic: Story = {
 export const WithSocialLinks: Story = {
   args: {
     brandIcon: 'FnALabsInverted',
+    brandSlogan: 'Fn Awesome!',
     socialLinks: [
       {
         name: 'github',
