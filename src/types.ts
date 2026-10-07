@@ -39,6 +39,7 @@ export type States = 'hovered' | 'focused' | 'active' | 'loading'
 
 export type ButtonStyle = 'outlined' | 'inverted' | 'rounded' | 'loading' | 'static'
 export type ButtonType = 'submit' | 'reset' | 'button'
+export type TagType = 'normal' | 'link' | 'button'
 export type FixedSize =
   | '16x16'
   | '24x24'
