@@ -2,38 +2,43 @@ import type { FC, ReactNode } from 'react'
 import type { Color, GenericSize, TagType } from '../../types'
 
 export interface ITag {
-  children: ReactNode
+  children?: ReactNode
   color?: Exclude<Color, 'text' | 'ghost'>
   size?: Exclude<GenericSize, 'small' | 'fullheight'>
   type?: TagType
+  hover?: boolean
   light?: boolean
   rounded?: boolean
   delete?: boolean
   onClick?: () => void
 }
-export const Tag: FC<ITag> = ({ children, color, light, size, type, rounded, delete: isDelete, onClick }) => {
+export const Tag: FC<ITag> = ({ children, color, hover, light, size, type, rounded, delete: isDelete, onClick }) => {
   const colorClass = color ? ` is-${color}` : ''
+  const hoverClass = hover ? ' is-hoverable' : ''
   const lightClass = light ? ' is-light' : ''
   const sizeClass = size ? ` is-${size}` : ''
   const roundedClass = rounded ? ' is-rounded' : ''
-  const deleteClass = isDelete ? ' is-delete' : ''
+
+  const classes = isDelete
+    ? 'tag is-delete'
+    : `tag${colorClass}${hoverClass}${lightClass}${sizeClass}${roundedClass}`
 
   switch (type) {
     case 'link':
       return (
-        <a className={`tag${colorClass}${lightClass}${sizeClass}${roundedClass}`} onClick={onClick}>
+        <a className={classes} onClick={onClick}>
           {children}
         </a>
       )
     case 'button':
       return (
-        <button className={`tag${colorClass}${lightClass}${sizeClass}${roundedClass}`} onClick={onClick}>
+        <button className={classes} onClick={onClick}>
           {children}
         </button>
       )
     default:
       return (
-        <span className={`tag${colorClass}${lightClass}${sizeClass}${roundedClass}`}>{children}</span>
+        <span className={classes}>{children}</span>
       )
   }
 }
