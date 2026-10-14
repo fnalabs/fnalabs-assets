@@ -7,7 +7,7 @@ import { ConsentContext } from '../../contexts/ConsentContext'
 
 export interface IButton {
   /** Child content to render in the Button. */
-  children: ReactNode
+  children?: ReactNode
   /** Optional click handler for the Button. */
   onClick?: (event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void
   /** Optional href for the Button to render as a link. */
@@ -32,6 +32,8 @@ export interface IButton {
   beforeIcon?: string
   /** Optional icon to render after the Button content. */
   afterIcon?: string
+  /** Optional delete experience for Button. */
+  delete?: boolean
   /** Optional disabled state for the Button. */
   disabled?: boolean
   /** Optional external link state for the Button. */
@@ -57,6 +59,7 @@ const Button: FC<IButton> = ({
   disabled,
   external,
   fullWidth,
+  delete: isDelete,
 }) => {
   const consent = useContext(ConsentContext)
 
@@ -68,6 +71,8 @@ const Button: FC<IButton> = ({
   const styleClass = style ? ` is-${style}` : ''
   const fullWidthClass = fullWidth ? ' is-fullwidth' : ''
   const combinedClasses = `button${colorClass}${colorModeClass}${selectedClass}${sizeClass}${stateClass}${styleClass}${fullWidthClass}`
+
+  if (isDelete) return <button className={`delete${sizeClass}`} onClick={onClick} disabled={disabled} />
 
   if (href) {
     const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {

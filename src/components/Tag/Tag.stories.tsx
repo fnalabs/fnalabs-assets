@@ -1,14 +1,22 @@
 import type { Meta, StoryObj } from 'storybook-react-rsbuild'
-import { expect, within } from 'storybook/test'
+import { expect } from 'storybook/test'
+import { MemoryRouter } from 'react-router'
 
 import Tag from './Tag'
 import Tags from './Tags'
+import Button from '../Button/Button'
+import Level from '../Level/Level'
 
 const meta = {
   title: 'Bulma/Elements/Tag',
   component: Tag,
   subcomponents: { Tags },
   tags: ['autodocs'],
+  decorators: [Story => (
+    <MemoryRouter>
+      <Story />
+    </MemoryRouter>
+  )],
 } satisfies Meta<typeof Tag>
 export default meta
 
@@ -126,5 +134,170 @@ export const Sizes: Story = {
     await expect(largeTags[2]).toHaveClass('is-large')
     await expect(largeTags[2].parentElement).toHaveClass('are-medium')
     await expect(mediumTags[4].parentElement).toHaveClass('are-medium')
+  },
+}
+
+export const States: Story = {
+  render: () => (
+    <>
+      <Tags>
+        <Tag type="link">Hover me</Tag>
+        <Tag type="button">Hover me</Tag>
+        <Tag hover>Hover me</Tag>
+      </Tags>
+      <Tags>
+        <Tag rounded>Rounded</Tag>
+      </Tags>
+      <Tags>
+        <Tag type="link" delete />
+      </Tags>
+    </>
+  ),
+  play: async ({ canvas }) => {
+    const hoverableTags = await canvas.getAllByText('Hover me')
+    const roundedTag = await canvas.getByText('Rounded')
+    const deleteTag = await canvas.getAllByRole('link')
+
+    await expect(hoverableTags[0].tagName).toBe('A')
+    await expect(hoverableTags[1].tagName).toBe('BUTTON')
+    await expect(hoverableTags[2].tagName).toBe('SPAN')
+    await expect(hoverableTags[2]).toHaveClass('is-hoverable')
+
+    await expect(roundedTag).toHaveClass('is-rounded')
+
+    await expect(deleteTag[1].tagName).toBe('A')
+    await expect(deleteTag[1]).toHaveClass('is-delete')
+  },
+}
+
+export const Combinations: Story = {
+  render: () => (
+    <>
+      <Tags>
+        <Tag type="link" color="link">Hover me</Tag>
+        <Tag type="button" color="primary">Hover me</Tag>
+        <Tag color="success" hover>Hover me</Tag>
+        <Tag type="link" color="info">Hover me</Tag>
+        <Tag type="button" color="warning">Hover me</Tag>
+        <Tag color="danger" hover>Hover me</Tag>
+      </Tags>
+      <Tags>
+        <Tag color="success">
+          Bar
+          <Button size="small" delete />
+        </Tag>
+        <Tag color="warning" size="medium">
+          Hello
+          <Button size="small" delete />
+        </Tag>
+        <Tag color="danger" size="large">
+          World
+          <Button delete />
+        </Tag>
+      </Tags>
+    </>
+  ),
+  play: async ({ canvas }) => {
+    const hoverableTags = await canvas.getAllByText('Hover me')
+  },
+}
+
+export const Lists: Story = {
+  render: () => (
+    <Tags>
+      <Tag>One</Tag>
+      <Tag>Two</Tag>
+      <Tag>Three</Tag>
+      <Tag>Four</Tag>
+      <Tag>Five</Tag>
+      <Tag>Six</Tag>
+      <Tag>Seven</Tag>
+      <Tag>Eight</Tag>
+      <Tag>Nine</Tag>
+      <Tag>Ten</Tag>
+      <Tag>Eleven</Tag>
+      <Tag>Twelve</Tag>
+      <Tag>Thirteen</Tag>
+      <Tag>Fourteen</Tag>
+      <Tag>Fifteen</Tag>
+      <Tag>Sixteen</Tag>
+      <Tag>Seventeen</Tag>
+      <Tag>Eighteen</Tag>
+      <Tag>Nineteen</Tag>
+      <Tag>Twenty</Tag>
+    </Tags>
+  ),
+  play: async ({ canvas }) => {
+    const tags = await canvas.getAllByText(/One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Eleven|Twelve|Thirteen|Fourteen|Fifteen|Sixteen|Seventeen|Eighteen|Nineteen|Twenty/)
+    await expect(tags).toHaveLength(20)
+  },
+}
+
+export const Addons: Story = {
+  render: () => (
+    <>
+      <div>
+        <Tags addons>
+          <Tag>Package</Tag>
+          <Tag color="primary">Bulma</Tag>
+        </Tags>
+      </div>
+      <br />
+      <div>
+        <Tags addons>
+          <Tag color="danger">Alex Smith</Tag>
+          <Tag type="link" delete />
+        </Tags>
+      </div>
+      <br />
+      <Level
+        mobile
+        items={{
+          left: [
+            {content: (
+              <Tags addons>
+                <Tag color="dark">npm</Tag>
+                <Tag color="info">1.0.4</Tag>
+              </Tags>
+            )},
+            {content: (
+              <Tags addons>
+                <Tag color="dark">build</Tag>
+                <Tag color="success">passing</Tag>
+              </Tags>
+            )},
+            {content: (
+              <Tags addons>
+                <Tag color="dark">chat</Tag>
+                <Tag color="primary">on gitter</Tag>
+              </Tags>
+            )},
+          ]
+        }}
+      />
+    </>
+  ),
+  play: async ({ canvas }) => {
+    const tags = await canvas.getAllByText(/Package|Bulma/)
+    await expect(tags).toHaveLength(2)
+    await expect(tags[0].parentElement).toHaveClass('has-addons')
+    await expect(tags[0].tagName).toBe('SPAN')
+    await expect(tags[1].parentElement).toHaveClass('has-addons')
+    await expect(tags[1]).toHaveClass('is-primary')
+    await expect(tags[1].tagName).toBe('SPAN')
+
+    const deleteTag = await canvas.getByRole('link')
+    await expect(deleteTag.parentElement).toHaveClass('has-addons')
+    await expect(deleteTag).toHaveClass('is-delete')
+    await expect(deleteTag.tagName).toBe('A')
+
+    const levelTags = await canvas.getAllByText(/npm|1.0.4|build|passing|chat|on gitter/)
+    await expect(levelTags).toHaveLength(6)
+    await expect(levelTags[0].parentElement).toHaveClass('has-addons')
+    await expect(levelTags[0]).toHaveClass('is-dark')
+    await expect(levelTags[0].tagName).toBe('SPAN')
+    await expect(levelTags[1].parentElement).toHaveClass('has-addons')
+    await expect(levelTags[1]).toHaveClass('is-info')
+    await expect(levelTags[1].tagName).toBe('SPAN')
   },
 }
