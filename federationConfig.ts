@@ -33,6 +33,8 @@ export default {
     './Notification': './src/components/Notification/Notification',
     './ProgressBar': './src/components/ProgressBar/ProgressBar',
     './Section': './src/components/Section/Section',
+    './Tag': './src/components/Tag/Tag',
+    './Tags': './src/components/Tag/Tags',
 
     // Custom Templates
     './AnalyticsLink': './src/templates/Analytics/AnalyticsLink',
